@@ -1,0 +1,16 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT (COUNT(?numLiteral) as ?count)
+WHERE {
+  ?subject ?property ?numLiteral .
+  FILTER (
+    isLiteral(?numLiteral) && 
+    (datatype(?numLiteral) = xsd:integer ||
+     datatype(?numLiteral) = xsd:decimal ||
+     datatype(?numLiteral) = xsd:float ||
+     datatype(?numLiteral) = xsd:double ||
+     datatype(?numLiteral) = xsd:nonNegativeInteger ||
+     datatype(?numLiteral) = xsd:positiveInteger ||
+     datatype(?numLiteral) = xsd:nonPositiveInteger ||
+     datatype(?numLiteral) = xsd:negativeInteger)
+  )
+}

@@ -1,0 +1,15 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT (COUNT(DISTINCT ?property) as ?count)
+WHERE {
+   ?property rdf:type rdf:Property .
+   FILTER NOT EXISTS {
+        ?property rdfs:domain ?domain .
+    }
+    FILTER NOT EXISTS {
+        ?property rdfs:range ?range .
+    }
+    FILTER(STRSTARTS(STR(?property), "https://w3id.org/tsso#") || STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/reusable-design#") || STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/standards#") || STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard#"))
+
+}

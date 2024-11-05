@@ -1,0 +1,28 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT DISTINCT ?subject ?label ?classification
+WHERE {
+  ?subject rdfs:label ?label.
+  ?subject rdf:type ?type.
+  FILTER(isLiteral(?label) && (datatype(?label) = xsd:string || !datatype(?label) || lang(?label)))
+  FILTER(STRSTARTS(STR(?subject), "https://w3id.org/tsso") ||
+         STRSTARTS(STR(?subject), "http://www.akgraph.org/ontologies/schema/reusable-solutions/reusable-design") ||
+         STRSTARTS(STR(?subject), "http://www.akgraph.org/ontologies/schema/system/system-base") ||
+         STRSTARTS(STR(?subject), "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements") ||
+         STRSTARTS(STR(?subject), "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline") ||
+         STRSTARTS(STR(?subject), "http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard")
+  )
+  BIND(
+    IF(BOUND(?type) && (?type = owl:Class || ?type = rdfs:Class), "Class", 
+      IF((?type = rdf:Property || ?type = owl:ObjectProperty), "Property",
+        IF(?type = owl:NamedIndividual, "Instance",
+          IF(?type = owl:Ontology, "Ontology", "Other")
+        )
+      )
+    ) AS ?classification
+  )
+  FILTER(?classification != "Other")
+}

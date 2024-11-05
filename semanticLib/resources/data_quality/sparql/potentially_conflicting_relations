@@ -1,0 +1,16 @@
+PREFIX ext: <http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?subject ?property ?object
+WHERE {
+   ?property rdf:type rdf:Property .
+   FILTER(
+       STRSTARTS(STR(?property), "https://w3id.org/tsso#") || 
+       STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/reusable-design#") || 
+       STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/standards#") || 
+       STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard#")
+   )
+  ?subject ?property ?object .
+  ?subject ?property ?object1 .
+  FILTER (?object != ?object1)
+}

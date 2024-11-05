@@ -1,0 +1,10 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <urn:absoluteiri:defaultvalue#>
+SELECT (COUNT(?boolLiteral) as ?count)
+WHERE {
+  ?subject ?property ?boolLiteral .
+  FILTER (
+    isLiteral(?boolLiteral) && 
+    datatype(?boolLiteral) = xsd:boolean
+  )
+}

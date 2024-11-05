@@ -1,0 +1,26 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT (COUNT(?literal) as ?count)
+WHERE {
+  ?subject ?property ?literal .
+  FILTER(
+    isLiteral(?literal) && 
+    (
+      datatype(?literal) = xsd:string ||  # Check if datatype is xsd:string
+      !datatype(?literal) ||              # Check if there is no datatype
+      lang(?literal)                      # Check if the literal has a language tag
+    ) && (
+      str(?literal) = "true" || str(?literal) = "false"  # Check for "true" or "false" values
+    )
+  )
+  FILTER(STRSTARTS(STR(?subject), "https://w3id.org/tsso") ||
+         STRSTARTS(STR(?subject), "http://www.akgraph.org/ontologies/schema/reusable-solutions/reusable-design") ||
+         STRSTARTS(STR(?subject), "http://www.akgraph.org/ontologies/schema/system/system-base") ||
+         STRSTARTS(STR(?subject), "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements") ||
+         STRSTARTS(STR(?subject), "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline") ||
+         STRSTARTS(STR(?subject), "http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard") ||
+         STRSTARTS(STR(?property), "https://w3id.org/tsso#") ||
+         STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/reusable-design#") ||
+         STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/standards#") ||
+         STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard#")
+  )
+}

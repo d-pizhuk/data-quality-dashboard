@@ -1,0 +1,53 @@
+{
+  "name": "dq-dashboard-extension",
+  "description": "Data Quality Dashboard",
+  "author": "Open Law Library",
+  "repository": "https://github.com/openlawlibrary/pygls",
+  "license": "Apache-2.0",
+  "version": "0.1.1",
+  "publisher": "openlawlibrary",
+  "engines": {
+    "vscode": "^1.62.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [{
+        "command": "dq_dashboard_client",
+        "title": "DQ Dashboard: Start"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Server Configuration",
+      "properties": {
+        "server.exampleConfiguration": {
+          "scope": "resource",
+          "type": "string",
+          "default": "You can override this message."
+        }
+      }
+    }
+  },
+  "main": "./client/out/extension",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@types/vscode": "^1.62.0",
+    "@typescript-eslint/eslint-plugin": "^5.3.0",
+    "@typescript-eslint/parser": "^5.3.0",
+    "eslint": "^8.2.0",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^7.0.0"
+  }
+}

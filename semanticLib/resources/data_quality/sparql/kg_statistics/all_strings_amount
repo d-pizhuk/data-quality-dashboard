@@ -1,0 +1,6 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT (COUNT(?literal) as ?count)
+WHERE {
+  ?subject ?property ?literal .
+  FILTER(isLiteral(?literal) && (datatype(?literal) = xsd:string || !datatype(?literal) || lang(?literal)))
+}

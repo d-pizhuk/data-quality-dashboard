@@ -1,0 +1,12 @@
+PREFIX tsso: <https://w3id.org/tsso#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ext: <http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard#>
+
+SELECT (COUNT(?instance) AS ?count)
+WHERE {
+  VALUES ?instance {
+    ?instances
+  }
+  ?instance ?property ?object.
+  FILTER (datatype(?object) = ?related_type)
+}

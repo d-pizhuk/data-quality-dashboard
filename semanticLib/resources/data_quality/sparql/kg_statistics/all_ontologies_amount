@@ -1,0 +1,5 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT (COUNT(DISTINCT ?ontology) AS ?count) WHERE {
+    ?ontology rdf:type owl:Ontology .
+}

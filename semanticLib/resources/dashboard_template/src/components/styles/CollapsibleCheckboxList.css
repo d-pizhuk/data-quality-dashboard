@@ -1,0 +1,31 @@
+.checkbox_list_with_chart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.checkbox_list {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: auto;
+    width: 30%
+}
+
+.checkbox_list h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3vw;
+    margin: 0;
+}
+
+.checkbox_list p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8vw;
+    margin: 0;
+}
+
+.checkbox_list_with_chart .MuiTreeItem-label {
+    font-size: 0.9vw !important;
+}

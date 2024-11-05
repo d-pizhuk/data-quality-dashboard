@@ -1,0 +1,9 @@
+lingua-language-detector==2.0.2
+lsprotocol==2023.0.1
+nltk==3.8.1
+git+https://github.com/casics/nostril.git@fbc0c91249283a9fbc9036206391ce1138826fd3#egg=nostril
+psutil==5.9.8
+pygls==1.3.1
+pyperclip==1.9.0
+SPARQLWrapper==2.0.0
+docker==7.1.0

@@ -1,0 +1,16 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?subclass ?ancestor
+WHERE {
+  VALUES ?subclass { ?valuesWithoutDelimeter }
+  
+  # Find subclass paths of any length
+  ?subclass rdfs:subClassOf* ?ancestor .
+    
+  
+  # Filter to ensure the ancestor is one of the classes of interest
+  FILTER(?ancestor IN ( ?valuesWithDelimeter))
+  FILTER(?subclass != ?ancestor)
+}
+ORDER BY ?subclass

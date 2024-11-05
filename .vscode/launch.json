@@ -1,0 +1,48 @@
+// A launch configuration that compiles the extension and then opens it inside a new window
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Client",
+            "type": "extensionHost",
+            "request": "launch",
+            "runtimeExecutable": "${execPath}",
+            "args": ["--extensionDevelopmentPath=${workspaceRoot}"],
+            "outFiles": ["${workspaceRoot}/client/out/**/*.js"],
+            "preLaunchTask": {
+                "type": "npm",
+                "script": "compile"
+            },
+            "env": {
+                "VSCODE_DEBUG_MODE": "true"
+            }
+        },
+        {
+            "name": "Launch Server",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "server",
+            "args": ["--tcp"],
+            "justMyCode": false,
+            "python": "${command:python.interpreterPath}",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Server + Client",
+            "configurations": ["Launch Server", "Launch Client"]
+        }
+    ]
+}

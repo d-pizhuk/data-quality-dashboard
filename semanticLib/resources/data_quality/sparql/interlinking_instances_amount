@@ -1,0 +1,8 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT (COUNT(DISTINCT ?instance) as ?count) WHERE {
+    ?instance rdf:type owl:NamedIndividual .
+    ?instance owl:sameAs ?externalInstance .
+    FILTER(!STRSTARTS(STR(?instance), "http://www.wikidata.org/entity/") && STRSTARTS(STR(?externalInstance), "http://www.wikidata.org/entity/") && (STRSTARTS(STR(?instance), "https://w3id.org/tsso#") || STRSTARTS(STR(?instance), "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#") || STRSTARTS(STR(?instance), "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#")))
+}

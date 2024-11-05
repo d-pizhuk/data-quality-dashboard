@@ -1,0 +1,9 @@
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT (COUNT(DISTINCT ?ontology) AS ?count) WHERE {
+    ?ontology ?md_property ?md_data .
+    ?ontology rdf:type owl:Ontology .
+}

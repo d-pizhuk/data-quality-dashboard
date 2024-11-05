@@ -1,0 +1,9 @@
+.expand {
+    position: absolute;
+    cursor: pointer;
+}
+
+.expand svg {
+    position: relative;
+    font-size: 1.3vw;
+}

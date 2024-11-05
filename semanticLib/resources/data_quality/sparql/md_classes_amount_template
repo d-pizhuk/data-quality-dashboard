@@ -1,0 +1,19 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT (COUNT(DISTINCT ?class) AS ?count) WHERE {
+    {
+        ?class ?md_property ?md_data .
+        ?class rdf:type owl:Class .
+    }
+    UNION
+    {
+        ?class rdf:type owl:Class .
+        ?class owl:equivalentClass ?equivalentClass .
+        ?equivalentClass ?md_property ?md_data .
+    }
+    FILTER(STRSTARTS(STR(?class), "https://w3id.org/tsso#") || STRSTARTS(STR(?class), "http://www.akgraph.org/ontologies/schema/reusable-solutions/reusable-design#") || STRSTARTS(STR(?class), "http://www.akgraph.org/ontologies/schema/system/system-base#") || STRSTARTS(STR(?class), "http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard#"))
+}

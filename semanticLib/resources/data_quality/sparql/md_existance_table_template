@@ -1,0 +1,10 @@
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+SELECT DISTINCT ?ontology (IF(BOUND(?md_data), 1, 0) AS ?has_md_property) WHERE {
+    ?ontology rdf:type owl:Ontology .
+    OPTIONAL { ?ontology ?md_property ?md_data . }
+}

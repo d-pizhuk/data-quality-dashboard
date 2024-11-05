@@ -1,0 +1,6 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT (COUNT(DISTINCT ?class) as ?count)
+WHERE {
+    ?instance rdf:type ?class .
+    FILTER(STRSTARTS(STR(?class), "https://w3id.org/tsso#") || STRSTARTS(STR(?class), "http://www.akgraph.org/ontologies/schema/reusable-solutions/reusable-design#") || STRSTARTS(STR(?class), "http://www.akgraph.org/ontologies/schema/system/system-base#") || STRSTARTS(STR(?class), "http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard#"))
+}

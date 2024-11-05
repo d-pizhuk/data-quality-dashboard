@@ -1,0 +1,22 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?property ?range
+WHERE {
+  ?property a rdf:Property ;
+            rdfs:range ?range.
+
+  # Filter properties based on specific namespaces
+  FILTER(
+    STRSTARTS(STR(?property), "https://w3id.org/tsso#") ||
+    STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/reusable-design#") ||
+    STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/standards#") ||
+    STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard#")
+  )
+    
+    FILTER (
+        isURI(?range)
+    )
+}

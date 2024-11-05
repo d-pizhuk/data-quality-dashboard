@@ -1,0 +1,9 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT (COUNT(DISTINCT ?property) AS ?count)
+WHERE {
+   	?property rdf:type rdf:Property .
+    ?property owl:equivalentProperty ?externalProperty .
+   	FILTER(!STRSTARTS(STR(?property), "http://www.wikidata.org/entity/") && STRSTARTS(STR(?externalProperty), " http://www.wikidata.org/entity/") && (STRSTARTS(STR(?property), "https://w3id.org/tsso#") || STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/reusable-design#") || STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/standards#") || STRSTARTS(STR(?property), "http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard#")))
+}

@@ -1,0 +1,41 @@
+.swiper.carousel {
+    width: calc(67% - 1vw);
+    height: 94%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    z-index: 10;
+}
+
+.swiper.carousel .swiper-wrapper {
+    align-items: center;
+}
+
+
+.swiper.carousel .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 33%;
+    height: 100%;
+}
+
+.swiper.carousel .swiper-slide img {
+    display: block;
+    width: 100%;
+}
+
+.swiper.carousel .doughnut-diagram {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.carousel .swiper-slide-shadow-right {
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 20px 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.carousel .swiper-slide-shadow-left {
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: -20px 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}

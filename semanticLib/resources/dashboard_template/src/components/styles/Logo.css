@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    cursor: default;
+}
+
+.logo-container.activated {
+    cursor: pointer;
+}
+
+.logo-container img {
+    width: 60%;
+    height: auto;
+    margin: auto;
+}
+
+.logo-text {
+    position: relative;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin: auto;
+}
+
+.logo-text::before {
+    content: "GRAPH";
+    font-size: 0.55vw;
+    font-family: 'Open Sans', sans-serif;
+    visibility: hidden;
+    white-space: pre;
+}
+
+.logo-text p {
+    position: absolute;
+    font-size: 0.55vw;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.34vw;
+    color: #282c34;
+    top: -1vw;
+    transition: top 0.3s;
+}
+
+.logo-container:hover .logo-text p {
+    top: 0;
+}

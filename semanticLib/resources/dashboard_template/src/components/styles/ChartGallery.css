@@ -1,0 +1,35 @@
+.chartGallery {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 50%;
+}
+
+.mainChart {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    transition: opacity 0.1s ease;
+}
+
+.chartGallery .mainChart .doughnut-diagram {
+    width: calc(100% - 1vw);
+}
+
+.secondaryCharts {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.chartGallery .secondaryCharts .secondaryChart {
+    cursor: pointer;
+}
+
+.chartGallery .secondaryCharts .secondaryChart .doughnut-diagram {
+    width: calc(100% - 1vw);
+}
+
+.chartGallery .secondaryCharts .secondaryChart .doughnut-diagram .diagram-title h1 {
+    font-size: 0.65vw
+}

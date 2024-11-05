@@ -1,0 +1,1662 @@
+{
+    "consistency_score": 0.6558715225687518,
+    "prop_def_consistency": 0.5957446808510638,
+    "props_with_domain_only_am": 7,
+    "props_with_range_only_am": 47,
+    "props_with_both_am": 85,
+    "props_with_both_none_or_blank_nodes_am": 49,
+    "format_consistency": 0.6663124372078801,
+    "date_format_consistency": 0.0,
+    "str_format_consistency": 0.7373651334469051,
+    "num_format_consistency": 0.9278846153846154,
+    "bool_format_consistency": 1.0,
+    "scope_conformity_score": 1.0,
+    "scope_specificity_score": 0.9002792181890706,
+    "conflicting_relations": {
+        "data": {
+            "http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard#isAssociatedTo": {
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR1": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR11",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR110",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR111",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR112",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR114",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR114_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR11_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR11_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR12",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR12_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR13",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR14",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR15",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR15_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR17",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR17_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR17_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR18",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR19",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR19_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR113",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR113_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR16",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR16_ENH1"
+                ],
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR2": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR210",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR211",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR211_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR211_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR212",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR212_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH3",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH4",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR22",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR23",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR25",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR26",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR27",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR28",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR29",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR29_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR213",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR213_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR24",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR24_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR213",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR213_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR24",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR24_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR213",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR213_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR24",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR24_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_SAR24",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_SAR24_ENH1"
+                ],
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR3": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR31",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR31_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR33",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR33_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR34",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR34_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR34_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR35",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR36",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR37",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR38",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR39",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR39_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR310",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR310_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR311",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR311_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR312",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR313",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR314",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR314_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR32",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR310",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR310_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR311",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR311_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR312",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR313",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR314",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR314_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR32",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR32_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR310",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR310_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR311",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR311_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR312",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR313",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR314",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR314_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR32",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_SAR32"
+                ],
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR4": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR41",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR42",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR42_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR42_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR43"
+                ],
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR5": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR51",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52_ENH3",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR53"
+                ],
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR6": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR61",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR61_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR62"
+                ],
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR7": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR71",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR71_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR72",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR73",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR73_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR74",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR75",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR76",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR76_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR77",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR78"
+                ]
+            },
+            "https://w3id.org/tsso#hasEnhancement": {
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR11": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR11_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR11_ENH2"
+                ],
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR17": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR17_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR17_ENH2"
+                ],
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH3",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH4"
+                ],
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR211": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR211_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR211_ENH2"
+                ],
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR34": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR34_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR34_ENH2"
+                ],
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR42": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR42_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR42_ENH2"
+                ],
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52_ENH3"
+                ]
+            },
+            "https://w3id.org/tsso#contains": {
+                "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0": [
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR11",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR110",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR111",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR112",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR114",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR114_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR11_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR11_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR12",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR12_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR13",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR14",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR15",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR15_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR17",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR17_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR17_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR18",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR19",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR19_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR210",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR211",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR211_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR211_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR212",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR212_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH3",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH4",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR22",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR23",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR25",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR26",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR27",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR28",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR29",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR29_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR31",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR31_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR33",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR33_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR34",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR34_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR34_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR35",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR36",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR37",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR38",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR39",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR39_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR41",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR42",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR42_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR42_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR43",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR51",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR61",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR61_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR62",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR71",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR71_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR72",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR73",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR73_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR74",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR75",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR76",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR76_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR77",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR78",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR213",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR213_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR24",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR24_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR310",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR310_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR311",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR311_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR312",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR313",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR314",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR314_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR32",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR213",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR213_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR24",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR24_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR310",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR310_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR311",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR311_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR312",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR313",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR314",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR314_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR32",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR32_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR113",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR113_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR16",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR16_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR213",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR213_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR24",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR24_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR310",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR310_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR311",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR311_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR312",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR313",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR314",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR314_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR32",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52_ENH2",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52_ENH3",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR53",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_SAR24",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_SAR24_ENH1",
+                    "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_SAR32"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P0",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P1",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P10",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P11",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P12",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P13",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P14",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P15",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P16",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P17",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P18",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P19",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P2",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P20",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P21",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P22",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P23",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P24",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P25",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P26",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P27",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P28",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P29",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P3",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P30",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P31",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P32",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P33",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P34",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P35",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P36",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P37",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P38",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P39",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P4",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P40",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P41",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P42",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P43",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P44",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P45",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P46",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P47",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P48",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P49",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P5",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P50",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P51",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P52",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P53",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P54",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P55",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P56",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P57",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P58",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P59",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P6",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P60",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P61",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P62",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P63",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P64",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P65",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P66",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P7",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P8",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P9"
+                ]
+            },
+            "https://w3id.org/tsso#hasConstraint": {
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P13": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON11",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON8"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P17": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON10",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON11"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P21": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON2",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON3"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P22": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON2",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON3"
+                ]
+            },
+            "https://w3id.org/tsso#hasSupplementalGuidance": {
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P0": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX0",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE0",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT13",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC1"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P1": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX1",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX2"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P11": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX12",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT21",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC3",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC4",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC5"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P12": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX13",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX14",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC6"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P16": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX16",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT23",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC7"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P17": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE5",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE6"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P19": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX18",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX19",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE7",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT24",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC8"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P23": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX20",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT27",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC9"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P24": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX21",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX22",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX23",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE8"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P29": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX25",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC10"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P3": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX3",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX4",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX5",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT14"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P30": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE9",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC11"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P31": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX26",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE10",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT30"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P32": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX27",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE11"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P36": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX28",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX29"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P37": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX30",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT31"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P38": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX31",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT32"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P4": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX6",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX7",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT15"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P42": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX35",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX36"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P46": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX37",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE12"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P48": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE13",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE14",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE15"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P52": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX39",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX40"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P53": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX41",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX42",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT35"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P55": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE18",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT36",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC15"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P57": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX43",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT37",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT38"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P61": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX45",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX46",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT40"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P7": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE1",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE2",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT17",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT18",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC2"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P8": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX8",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX9",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE3"
+                ],
+                "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P9": [
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX10",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX11",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE4",
+                    "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT19"
+                ]
+            }
+        },
+        "metadata": {
+            "http://www.akgraph.org/ontologies/schema/reusable-solutions/security-extension-standard#isAssociatedTo": {
+                "comment": ""
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR1": {
+                "label": "IAC",
+                "comment": "Identification and authentication control"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR11": {
+                "label": "CR 1.1",
+                "comment": "Human user identification and authentication"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR110": {
+                "label": "CR 1.10",
+                "comment": "Authenticator feedback"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR111": {
+                "label": "CR 1.11",
+                "comment": "Unsuccessful login attempts"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR112": {
+                "label": "CR 1.12",
+                "comment": "System use notification"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR114": {
+                "label": "CR 1.14",
+                "comment": "Strength of symmetric key-based authentication"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR114_ENH1": {
+                "label": "RE 1",
+                "comment": "Hardware security for symmetric key-based  authentication"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR11_ENH1": {
+                "label": "RE 1",
+                "comment": "Unique identification and authentication:"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR11_ENH2": {
+                "label": "RE 2",
+                "comment": "Multifactor authentication for all interfaces"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR12": {
+                "label": "CR 1.2",
+                "comment": "Software process and device identification and  authentication"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR12_ENH1": {
+                "label": "RE 1",
+                "comment": "Unique identification and authentication"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR13": {
+                "label": "CR 1.3",
+                "comment": "Account management"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR14": {
+                "label": "CR 1.4",
+                "comment": "Identifier management"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR15": {
+                "label": "CR 1.5",
+                "comment": "Authenticator management"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR15_ENH1": {
+                "label": "RE 1",
+                "comment": "Hardware security for authenticators"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR17": {
+                "label": "CR 1.7",
+                "comment": "Strength of password-based authentication"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR17_ENH1": {
+                "label": "RE 1",
+                "comment": "Password generation and lifetime restrictions for human  users"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR17_ENH2": {
+                "label": "RE 2",
+                "comment": "Password lifetime restrictions for all users (human,  software process, or device)"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR18": {
+                "label": "CR 1.8",
+                "comment": "Public key infrastructure certificates"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR19": {
+                "label": "CR 1.9",
+                "comment": "Strength of public key-based authentication"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR19_ENH1": {
+                "label": "RE 1",
+                "comment": "Hardware security for public key-based authentication"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR113": {
+                "label": "NDR 1.13",
+                "comment": "Access via untrusted networks"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR113_ENH1": {
+                "label": "RE 1",
+                "comment": "Explicit access request approval"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR16": {
+                "label": "NDR 1.6",
+                "comment": "Wireless access management"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR16_ENH1": {
+                "label": "RE 1",
+                "comment": "Unique identification and authentication"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR2": {
+                "label": "UC",
+                "comment": "Use control"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21": {
+                "label": "CR 2.1",
+                "comment": "Authorization enforcement"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR210": {
+                "label": "CR 2.10",
+                "comment": "Response to audit processing failures"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR211": {
+                "label": "CR 2.11",
+                "comment": "Timestamps"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR211_ENH1": {
+                "label": "RE 1",
+                "comment": "Time synchronization"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR211_ENH2": {
+                "label": "RE 2",
+                "comment": "Protection of time source integrity"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR212": {
+                "label": "CR 2.12",
+                "comment": "Non-repudiation"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR212_ENH1": {
+                "label": "RE 1",
+                "comment": "Non-repudiation for all users"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH1": {
+                "label": "RE 1",
+                "comment": "Authorization enforcement for all users (humans,  software processes and devices)"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH2": {
+                "label": "RE 2",
+                "comment": "Permission mapping to roles"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH3": {
+                "label": "RE 3",
+                "comment": "Supervisor override"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR21_ENH4": {
+                "label": "RE 4",
+                "comment": "Dual approval"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR22": {
+                "label": "CR 2.2",
+                "comment": "Wireless use control"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR23": {
+                "label": "CR 2.3",
+                "comment": ""
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR25": {
+                "label": "CR 2.5",
+                "comment": "Session lock"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR26": {
+                "label": "CR 2.6",
+                "comment": "Remote session termination"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR27": {
+                "label": "CR 2.7",
+                "comment": "Concurrent session control"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR28": {
+                "label": "CR 2.8",
+                "comment": "Auditable events"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR29": {
+                "label": "CR 2.9",
+                "comment": "Audit storage capacity"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR29_ENH1": {
+                "label": "RE 1",
+                "comment": "Warn when audit record storage capacity threshold  reached"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR213": {
+                "label": "EDR 2.13",
+                "comment": "Use of physical diagnostic and test interfaces"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR213_ENH1": {
+                "label": "RE 1",
+                "comment": "Active monitoring"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR24": {
+                "label": "EDR 2.4",
+                "comment": "Mobile code"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR24_ENH1": {
+                "label": "RE 1",
+                "comment": "Mobile code authenticity check"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR213": {
+                "label": "HDR 2.13",
+                "comment": "Use of physical diagnostic and test interfaces"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR213_ENH1": {
+                "label": "RE 1",
+                "comment": "Active monitoring"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR24": {
+                "label": "HDR 2.4",
+                "comment": "Mobile code"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR24_ENH1": {
+                "label": "RE 1",
+                "comment": "Mobile code authenticity check"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR213": {
+                "label": "NDR 2.13",
+                "comment": "Use of physical diagnostic and test interfaces"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR213_ENH1": {
+                "label": "RE 1",
+                "comment": "Active monitoring"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR24": {
+                "label": "NDR 2.4",
+                "comment": "Mobile code"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR24_ENH1": {
+                "label": "RE 1",
+                "comment": "Mobile code authenticity check"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_SAR24": {
+                "label": "SAR 2.4",
+                "comment": "Mobile code"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_SAR24_ENH1": {
+                "label": "RE 1",
+                "comment": "Mobile code authenticity check"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR3": {
+                "label": "SI",
+                "comment": "System integrity"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR31": {
+                "label": "CR 3.1",
+                "comment": "Communication integrity"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR31_ENH1": {
+                "label": "RE 1",
+                "comment": "Communication authentication"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR33": {
+                "label": "CR 3.3",
+                "comment": "Security functionality verification"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR33_ENH1": {
+                "label": "RE 1",
+                "comment": "Security functionality verification during normal  operation"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR34": {
+                "label": "CR 3.4",
+                "comment": "Software and information integrity"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR34_ENH1": {
+                "label": "RE 1",
+                "comment": "Authenticity of software and information"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR34_ENH2": {
+                "label": "RE 2",
+                "comment": "Automated notification of integrity violations"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR35": {
+                "label": "CR 3.5",
+                "comment": "Input validation"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR36": {
+                "label": "CR 3.6",
+                "comment": "Deterministic output"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR37": {
+                "label": "CR 3.7",
+                "comment": "Error handling"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR38": {
+                "label": "CR 3.8",
+                "comment": "Session integrity"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR39": {
+                "label": "CR 3.9",
+                "comment": "Protection of audit information"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR39_ENH1": {
+                "label": "RE 1",
+                "comment": "Audit records on write-once media"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR310": {
+                "label": "EDR 3.10",
+                "comment": "Support for updates"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR310_ENH1": {
+                "label": "RE 1",
+                "comment": "Update authenticity and integrity"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR311": {
+                "label": "EDR 3.11",
+                "comment": "Physical tamper resistance and detection"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR311_ENH1": {
+                "label": "RE 1",
+                "comment": "Notification of a tampering attempt"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR312": {
+                "label": "EDR 3.12",
+                "comment": "Provisioning product supplier roots of trust"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR313": {
+                "label": "EDR 3.13",
+                "comment": "Provisioning asset owner roots of trust"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR314": {
+                "label": "EDR 3.14",
+                "comment": "Integrity of the boot process"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR314_ENH1": {
+                "label": "RE 1",
+                "comment": "Authenticity of the boot process"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_EDR32": {
+                "label": "EDR 3.2",
+                "comment": "Protection from malicious code"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR310": {
+                "label": "HDR 3.10",
+                "comment": "Support for updates"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR310_ENH1": {
+                "label": "RE 1",
+                "comment": "Update authenticity and integrity"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR311": {
+                "label": "HDR 3.11",
+                "comment": "Physical tamper resistance and detection"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR311_ENH1": {
+                "label": "RE 1",
+                "comment": "Notification of a tampering attempt"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR312": {
+                "label": "HDR 3.12",
+                "comment": "Provisioning product supplier roots of trust"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR313": {
+                "label": "HDR 3.13",
+                "comment": "Provisioning asset owner roots of trust"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR314": {
+                "label": "HDR 3.14",
+                "comment": "Integrity of the boot process"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR314_ENH1": {
+                "label": "RE 1",
+                "comment": "Authenticity of the boot process"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR32": {
+                "label": "HDR 3.2",
+                "comment": "Protection from malicious code"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_HDR32_ENH1": {
+                "label": "RE 1",
+                "comment": "Report version of code protection"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR310": {
+                "label": "NDR 3.10",
+                "comment": "Support for updates"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR310_ENH1": {
+                "label": "RE 1",
+                "comment": "Update authenticity and integrity"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR311": {
+                "label": "NDR 3.11",
+                "comment": "Physical tamper resistance and detection"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR311_ENH1": {
+                "label": "RE 1",
+                "comment": "Notification of a tampering attempt"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR312": {
+                "label": "NDR 3.12",
+                "comment": "Provisioning product supplier roots of trust"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR313": {
+                "label": "NDR 3.13",
+                "comment": "Provisioning asset owner roots of trust"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR314": {
+                "label": "NDR 3.14",
+                "comment": "Integrity of the boot process"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR314_ENH1": {
+                "label": "RE 1",
+                "comment": "Authenticity of the boot process"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR32": {
+                "label": "NDR 3.2",
+                "comment": "Protection from malicious code"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_SAR32": {
+                "label": "SAR 3.2",
+                "comment": "Protection from malicious code"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR4": {
+                "label": "DC",
+                "comment": "Data confidentiality"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR41": {
+                "label": "CR 4.1",
+                "comment": "Information confidentiality"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR42": {
+                "label": "CR 4.2",
+                "comment": "Information persistence"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR42_ENH1": {
+                "label": "RE 1",
+                "comment": "Erase of shared memory resources"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR42_ENH2": {
+                "label": "RE 2",
+                "comment": "Erase verification"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR43": {
+                "label": "CR 4.3",
+                "comment": "Use of cryptography"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR5": {
+                "label": "RDF",
+                "comment": "Restricted data flow"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR51": {
+                "label": "CR 5.1",
+                "comment": "Network segmentation"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52": {
+                "label": "NDR 5.2",
+                "comment": "Zone boundary protection"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52_ENH1": {
+                "label": "RE 1",
+                "comment": "Deny all, permit by exception"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52_ENH2": {
+                "label": "RE 2",
+                "comment": "Island mode"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR52_ENH3": {
+                "label": "RE 3",
+                "comment": "Fail close"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_NDR53": {
+                "label": "NDR 5.3",
+                "comment": "General purpose, person-to-person communication  restrictions"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR6": {
+                "label": "TRE",
+                "comment": "Timely response to events"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR61": {
+                "label": "CR 6.1",
+                "comment": "Audit log accessibility"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR61_ENH1": {
+                "label": "RE 1",
+                "comment": "Programmatic access to audit logs"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR62": {
+                "label": "CR 6.2",
+                "comment": "Continuous monitoring"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_FR7": {
+                "label": "RA",
+                "comment": "Resource availability"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR71": {
+                "label": "CR 7.1",
+                "comment": "Denial of service protection"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR71_ENH1": {
+                "label": "RE 1",
+                "comment": "Manage communication load from component"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR72": {
+                "label": "CR 7.2",
+                "comment": "Resource management"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR73": {
+                "label": "CR 7.3",
+                "comment": "Control system backup"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR73_ENH1": {
+                "label": "RE 1",
+                "comment": "Backup integrity verification"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR74": {
+                "label": "CR 7.4",
+                "comment": "Control system recovery and reconstitution"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR75": {
+                "label": "CR 7.5",
+                "comment": ""
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR76": {
+                "label": "CR 7.6",
+                "comment": "Network and security configuration settings"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR76_ENH1": {
+                "label": "RE 1",
+                "comment": "Machine-readable reporting of current security settings"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR77": {
+                "label": "CR 7.7",
+                "comment": "Least functionality"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0_CR78": {
+                "label": "CR 7.8",
+                "comment": "Control system component inventory"
+            },
+            "https://w3id.org/tsso#hasEnhancement": {
+                "label": "has Enhancement"
+            },
+            "https://w3id.org/tsso#contains": {
+                "label": "contains"
+            },
+            "http://www.akgraph.org/ontologies/instances/IEC_62443-TSecurityRequirements#S0": {
+                "label": "TS 62 443 - Security for Industrial Automation and Control Systems; Part 4-2 Technical Security requirements for IACS components"
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0": {
+                "label": "TS 103 645 - V2.1.2;Cyber Security for Consumer Internet of Things: Baseline Requirements"
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P0": {
+                "description": "Where passwords are used and in any state other than the factory default, all consumer IoT device passwords shall be unique per device or defined by the user."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P1": {
+                "description": "Where pre-installed unique per device passwords are used, these shall be generated with a mechanism that reduces the risk of automated attacks against a class or type of device."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P10": {
+                "description": "An update shall be simple for the user to apply."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P11": {
+                "description": "Automatic mechanisms should be used for software updates."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P12": {
+                "description": "The device should check after initialization, and then periodically, whether security updates are available."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P13": {
+                "description": "If the device supports automatic updates and/or update notifications, these should be enabled in the initialized state and configurable so that the user can enable, disable, or postpone installation of security updates and/or update notifications."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P14": {
+                "description": "The device shall use best practice cryptography to facilitate secure update mechanisms."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P15": {
+                "description": "Security updates shall be timely."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P16": {
+                "description": "The device should verify the authenticity and integrity of software updates."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P17": {
+                "description": "Where updates are delivered over a network interface, the device shall verify the authenticity and integrity of each update via a trust relationship."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P18": {
+                "description": "The manufacturer should inform the user in a recognizable and apparent manner that a security update is required together with information on the risks mitigated by that update."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P19": {
+                "description": "The device should notify the user when the application of a software update will disrupt the basic functioning of the device."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P2": {
+                "description": "Authentication mechanisms used to authenticate users against a device shall use best practice cryptography, appropriate to the properties of the technology, risk and usage."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P20": {
+                "description": "The manufacturer shall publish, in an accessible way that is clear and transparent to the user, the defined support period."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P21": {
+                "description": "For constrained devices that cannot have their software updated, the rationale for the absence of software updates, the period and method of hardware replacement support and a defined support period should be published by the manufacturer in an accessible way that is clear and transparent to the user."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P22": {
+                "description": "For constrained devices that cannot have their software updated, the product should be isolable and the hardware replaceable."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P23": {
+                "description": "The model designation of the consumer IoT device shall be clearly recognizable, either by labelling on the device or via a physical interface."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P24": {
+                "description": "Sensitive security parameters in persistent storage shall be stored securely by the device."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P25": {
+                "description": "Where a hard-coded unique per device identity is used in a device for security purposes, it shall be implemented in such a way that it resists tampering by means such as physical, electrical or software."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P26": {
+                "description": "Hard-coded critical security parameters in device software source code shall not be used."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P27": {
+                "description": "Any critical security parameters used for integrity and authenticity checks of software updates and for protection of communication with associated services in device software shall be unique per device and shall be produced with a mechanism that reduces the risk of automated attacks against classes of devices."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P28": {
+                "description": "The consumer IoT device shall use best practice cryptography to communicate securely."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P29": {
+                "description": "The consumer IoT device should use reviewed or evaluated implementations to deliver network and security functionalities, particularly in the field of cryptography."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P3": {
+                "description": "Where a user can authenticate against a device, the device shall provide to the user or an administrator a simple mechanism to change the authentication value used."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P30": {
+                "description": "Cryptographic algorithms and primitives should be updateable."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P31": {
+                "description": "Access to device functionality via a network interface in the initialized state should only be possible after authentication on that interface."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P32": {
+                "description": "Device functionality that allows security-relevant changes in configuration via a network interface shall only be accessible after authentication. The exception is for network service protocols that are relied upon by the device and where the manufacturer cannot guarantee what configuration will be required for the device to operate."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P33": {
+                "description": "Critical security parameters should be encrypted in transit, with such encryption appropriate to the properties of the technology, risk and usage."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P34": {
+                "description": "The consumer IoT device shall protect the confidentiality of critical security parameters that are communicated via remotely accessible network interfaces."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P35": {
+                "description": "The manufacturer shall follow secure management processes for critical security parameters that relate to the device."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P36": {
+                "description": "All unused network and logical interfaces shall be disabled."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P37": {
+                "description": "In the initialized state, the network interfaces of the device shall minimize the unauthenticated disclosure of security-relevant information."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P38": {
+                "description": "Device hardware should not unnecessarily expose physical interfaces to attack."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P39": {
+                "description": "Where a debug interface is physically accessible, it shall be disabled in software."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P4": {
+                "description": "When the device is not a constrained device, it shall have a mechanism available which makes bruteforce attacks on authentication mechanisms via network interfaces impracticable."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P40": {
+                "description": "The manufacturer should only enable software services that are used or required for the intended use or operation of the device."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P41": {
+                "description": "Code should be minimized to the functionality necessary for the service/device to operate."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P42": {
+                "description": "Software should run with least necessary privileges, taking account of both security and functionality."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P43": {
+                "description": "The device should include a hardware-level access control mechanism for memory."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P44": {
+                "description": "The manufacturer should follow secure development processes for software deployed on the device."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P45": {
+                "description": "The consumer IoT device should verify its software using secure boot mechanisms."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P46": {
+                "description": "If an unauthorized change is detected to the software, the device should alert the user and/or administrator to the issue and should not connect to wider networks than those necessary to perform the alerting function."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P47": {
+                "description": "The confidentiality of personal data transiting between a device and a service, especially associated services, should be protected, with best practice cryptography."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P48": {
+                "description": "The confidentiality of sensitive personal data communicated between the device and associated services shall be protected, with cryptography appropriate to the properties of the technology and usage."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P49": {
+                "description": "All external sensing capabilities of the device shall be documented in an accessible way that is clear and transparent for the user."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P5": {
+                "description": "The manufacturer shall make a vulnerability disclosure policy publicly available. This policy shall include, at a minimum: \u2022 contact information for the reporting of issues; and \u2022 information on timelines for: 1) initial acknowledgement of receipt; and 2) status updates until the resolution of the reported issues."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P50": {
+                "description": "Resilience should be built in to consumer IoT devices and services, taking into account the possibility of outages of data networks and power."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P51": {
+                "description": "Consumer IoT devices should remain operating and locally functional in the case of a loss of network access and should recover cleanly in the case of restoration of a loss of power."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P52": {
+                "description": "The consumer IoT device should connect to networks in an expected, operational and stable state and in an orderly fashion, taking the capability of the infrastructure into consideration."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P53": {
+                "description": "If telemetry data is collected from consumer IoT devices and services, such as usage and measurement data, it should be examined for security anomalies."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P54": {
+                "description": "The user shall be provided with functionality such that user data can be erased from the device in a simple manner."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P55": {
+                "description": "The consumer should be provided with functionality on the device such that personal data can be removed from associated services in a simple manner."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P56": {
+                "description": "Users should be given clear instructions on how to delete their personal data."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P57": {
+                "description": "Users should be provided with clear confirmation that personal data has been deleted from services, devices and applications."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P58": {
+                "description": "Installation and maintenance of consumer IoT should involve minimal decisions by the user and should follow security best practice on usability."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P59": {
+                "description": "The manufacturer should provide users with guidance on how to securely set up their device."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P6": {
+                "description": "Disclosed vulnerabilities should be acted on in a timely manner."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P60": {
+                "description": "The manufacturer should provide users with guidance on how to check whether their device is securely set up."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P61": {
+                "description": "The consumer IoT device software shall validate data input via user interfaces or transferred via Application Programming Interfaces (APIs) or between networks in services and devices."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P62": {
+                "description": "The manufacturer shall provide consumers with clear and transparent information about what personal data is processed, how it is being used, by whom, and for what purposes, for each device and service. This also applies to third parties that can be involved, including advertisers."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P63": {
+                "description": "Where personal data is processed on the basis of consumers' consent, this consent shall be obtained in a valid way."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P64": {
+                "description": "Consumers who gave consent for the processing of their personal data shall have the capability to withdraw it at any time."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P65": {
+                "description": "If telemetry data is collected from consumer IoT devices and services, the processing of personal data should be kept to the minimum necessary for the intended functionality."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P66": {
+                "description": "If telemetry data is collected from consumer IoT devices and services, consumers shall be provided with information on what telemetry data is collected, how it is being used, by whom, and for what purposes."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P7": {
+                "description": "Manufacturers should continually monitor for, identify and rectify security vulnerabilities within products and services they sell, produce, have produced and services they operate during the defined support period."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P8": {
+                "description": "All software components in consumer IoT devices should be securely updateable."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_P9": {
+                "description": "When the device is not a constrained device, it shall have an update mechanism for the secure installation of updates."
+            },
+            "https://w3id.org/tsso#hasConstraint": {
+                "label": "has Constraint"
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON11": {
+                "label": "an update mechanism is implemented."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON8": {
+                "label": "the device supports automatic updates and/or update notifications."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON10": {
+                "label": "updates are delivered over a network interface."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON2": {
+                "label": "software components are not updateable."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_CON3": {
+                "label": "the device is constrained."
+            },
+            "https://w3id.org/tsso#hasSupplementalGuidance": {
+                "label": "has Supplemental Guidance"
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX0": {
+                "label": "EXAMPLE 1",
+                "description": "During initialization a device generates certificates that are used to authenticate a user to the device via an associated service like a mobile application."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE0": {
+                "label": "NOTE",
+                "description": "There are many mechanisms used for performing authentication, and passwords are not the only mechanism for authenticating a user to a device. However if they are used, following best practice on passwords is encouraged according to NIST Special Publication 800-63B [i.3]. Using passwords for machine to machine authentication is generally not appropriate."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT13": {
+                "label": "RATIONALE",
+                "description": "Many consumer IoT devices are sold with universal default usernames and passwords (such as \"admin, admin\") for user interfaces through to network protocols. Continued usage of universal default values has been the source of many security issues in IoT [i.17] and the practice needs to be discontinued."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC1": {
+                "label": "RECOMMENDATION",
+                "description": "To increase security, multi-factor authentication, such as use of a password plus OTP procedure, can be used to better protect the device or an associated service. Device security can further be strengthened by having unique and immutable identities."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX1": {
+                "label": "EXAMPLE 2",
+                "description": "Pre-installed passwords are sufficiently randomized."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX2": {
+                "label": "EXAMPLE NEG",
+                "description": "Passwords with incremental counters (such as \"password1\", \"password2\" and so on) are easily guessable. Further, using a password that is related in an obvious way to public information (sent over the air or within a network), such as MAC address or Wi-Fi\u00ae SSID, can allow for password retrieval using automated means."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX12": {
+                "label": "EXAMPLE 5",
+                "description": "Under the EU Product Legislation, a feature update could change the intended use of a device and thus turn it into a new product, requiring a new conformity assessment to be conducted. However, a software update with limited impact could be considered a maintenance update which would not require a new conformity assessment. More information on the impact of software updates in the context of the EU Product Legislation can be found in the Blue Guide [i.13]."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT21": {
+                "label": "RATIONALE",
+                "description": "Security updates can be provided for devices in a preventative manner, as part of automatic updates, which can remove security vulnerabilities before they are exploited. Managing this can be complex, especially if there are parallel associated service updates, device updates and other service updates to deal with. Therefore, a clear management and deployment plan is beneficial to the manufacturer, as is transparency to consumers about the current state of update support."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC3": {
+                "label": "RECOMMENDATION",
+                "description": "If an automatic update fails, then a user can, in some circumstances, no longer be able to use a device. Detection mechanisms such as watchdogs and the use of dual-bank flash or recovery partitions can ensure that the device returns to either a known good version or the factory state."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC4": {
+                "label": "RECOMMENDATION",
+                "description": "In many cases, publishing software updates involves multiple dependencies on other organizations such as manufacturers that produce sub-components; however, this is not a reason to withhold updates. It can be useful for the manufacturer to consider the entire software supply chain in the development and deployment of security updates."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC5": {
+                "label": "RECOMMENDATION",
+                "description": "It is often advisable not to bundle security updates with more complex software updates, such as feature updates. A feature update that introduces new functionality can trigger additional requirements and delay delivery of the update to devices."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX13": {
+                "label": "EXAMPLE 6",
+                "description": "The user could be shown the existence of updates via the interface with which the device is initialized."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX14": {
+                "label": "EXAMPLE 7",
+                "description": "A device checks for available updates daily at a randomized time."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC6": {
+                "label": "RECOMMENDATION",
+                "description": "For some products, it can be more appropriate for the associated service, rather than the device, to perform such checks."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX16": {
+                "label": "EXAMPLE 9",
+                "description": "When a device detects that an update could not be delivered or applied successfully (by failing integrity or authentication checks), the device can mitigate information leakage by not providing any information about the failure to the initiator of the update process. However, the device can generate a log entry and deliver notification of the log entry to a trusted peer (e.g. a device administrator) over a secure channel, so that the occurrence of the incident is known and the owner or administrator of the device can make an appropriate response."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT23": {
+                "label": "RATIONALE",
+                "description": "It is good practice for a device to act upon the detection of an invalid and potentially malicious update. Beyond rejecting the update, and without limitation, it can report the incident to an appropriate service and/or inform the user. In addition, mitigating controls can be put in place to prevent an attacker from bypassing or misusing an update mechanism. Giving the attacker as little information as possible as part of the update mechanism reduces their ability to exploit it."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC7": {
+                "label": "RECOMMENDATION",
+                "description": "A common approach for confirming that an update is valid is to verify its integrity and authenticity. This can be done on the device; however, constrained devices can have power limitations that make performing cryptographic operations costly. In such cases, verification can be performed by another device that is trusted to perform this verification. The verified update would then be sent over a secure channel to the device. Performing verification of updates at a hub and then on the device, can reduce the risk of compromise."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE5": {
+                "label": "NOTE 3",
+                "description": "Valid trust relationships include: authenticated communication channels, presence on a network that requires the device to possess a critical security parameter or password to join, digital signature based verification of the update, or confirmation by the user."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE6": {
+                "label": "NOTE 4",
+                "description": "The validation of the trust relationship is essential to ensure that a non-authorized entity (e.g. device management platform or device) cannot install malicious code."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX18": {
+                "label": "EXAMPLE 11",
+                "description": "A notification includes information about the urgency and approximate expected duration of downtime."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX19": {
+                "label": "EXAMPLE 12",
+                "description": "During an update, a watch will continue to display the time, a home thermostat will continue to maintain a reasonable temperature and a Smart Lock will continue to lock and unlock a door."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE7": {
+                "label": "NOTE 5",
+                "description": "This is not necessary if a notification is made by an associated service."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT24": {
+                "label": "RATIONALE",
+                "description": "It can be critical for users that a device continues to operate during an update. This is why the provision above recommends to notify the user when an update will disrupt functionality where possible. Particularly, devices that fulfil a safety-relevant function are expected not to turn completely off in the case of an update; some minimal system functional capability is expected. Disruption to functionality can become a critical safety issue for some types of devices and systems if not considered or managed correctly."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC8": {
+                "label": "RECOMMENDATION",
+                "description": "This notification can include extra detail, such as the approximate expected duration for which the device will be offline."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX20": {
+                "label": "EXAMPLE 13",
+                "description": "A device has a HTTP (or HTTPS when appropriate) API that reports the model designation (after user authentication)."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT27": {
+                "label": "RATIONALE",
+                "description": "Knowledge of the specific designation of the device is often required to check the defined support period of software updates or the availability of software updates."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC9": {
+                "label": "RECOMMENDATION",
+                "description": "This is often performed by communicating with a device over a logical interface, however it can also be part of a UI."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX21": {
+                "label": "EXAMPLE 1",
+                "description": "The root keys involved in authorization and access to licensed radio frequencies (e.g. LTE-m cellular access) are stored in a UICC."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX22": {
+                "label": "EXAMPLE 2",
+                "description": "A remote controlled door-lock using a Trusted Execution Environment (TEE) to store and access the sensitive security parameters."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX23": {
+                "label": "EXAMPLE 3",
+                "description": "A wireless thermostat stores the credentials for the wireless network in a tamper protected microcontroller rather than in external flash storage."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE8": {
+                "label": "NOTE",
+                "description": "This provision applies to persistent storage, but manufacturers can also implement similar approaches for sensitive security parameters in memory."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX25": {
+                "label": "EXAMPLE 1",
+                "description": "Distributed software libraries within the development and test community, certified software modules, and hardware equipment crypto-service providers (such as the Secure Element and Trust Execution Environment) are all reviewed or evaluated."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC10": {
+                "label": "RECOMMENDATION",
+                "description": "Reviews and evaluations can involve an independent internal or external entity."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX3": {
+                "label": "EXAMPLE 3",
+                "description": "For biometric authentication values the device manufacturer allows this change in authentication value through retraining against a new biometric."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX4": {
+                "label": "EXAMPLE 4",
+                "description": "A parent in a household creates an account on the device for their child and selects and manages the PIN or password that the child uses. The parent is an administrator on the device and can restrict the child from changing the PIN or password."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX5": {
+                "label": "EXAMPLE 5",
+                "description": "To make it simple for the user to change a password, the manufacturer designs the password change process in a way that it requires a minimal number of steps. The manufacturer explains the process in a user manual and in a video tutorial."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT14": {
+                "label": "RATIONALE",
+                "description": "An authentication mechanism used for authenticating users, whether it be a fingerprint, password or other token, needs to have its value changeable. This is easier when this mechanism is part of the normal usage flow of the device."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE9": {
+                "label": "NOTE 1",
+                "description": "This is also known as \"cryptoagility\"."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC11": {
+                "label": "RECOMMENDATION",
+                "description": "For devices that cannot be updated, it is important that the intended lifetime of the device does not exceed the recommended usage lifetime of cryptographic algorithms used by the device (including key sizes)."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX26": {
+                "label": "EXAMPLE NEG",
+                "description": "There are devices that provide public, open data for example in the Web of Things [i.18]. These devices are accessible without authentication to provide open access to all."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE10": {
+                "label": "NOTE 2",
+                "description": "Functionality can vary significantly on the use case and can encompass a range of things, including access to personal data and device actuators."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT30": {
+                "label": "RATIONALE",
+                "description": "The device can be compromised via vulnerabilities in network services. A suitable authentication mechanism can protect against unauthorized access and can contribute to defence-in-depth in the device."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX27": {
+                "label": "EXAMPLE 2",
+                "description": "Security-relevant changes include permission management, configuration of network keys and password changes."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE11": {
+                "label": "NOTE 3",
+                "description": "Protocols that are an exception include ARP, DHCP, DNS, ICMP, and NTP."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX28": {
+                "label": "EXAMPLE 1",
+                "description": "An administrative UI that is supposed to be accessed from the LAN is not accessible from the WAN by default."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX29": {
+                "label": "EXAMPLE 2",
+                "description": "A Direct Firmware Update (DFU) service exposed over Bluetooth\u00ae Low Energy is used for development but not expected to be used in production. It is disabled in the final product."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX30": {
+                "label": "EXAMPLE 3",
+                "description": "When finding vulnerable devices throughout the whole IP address space, security-relevant information could be information about the device configuration, kernel version or software version."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT31": {
+                "label": "RATIONALE",
+                "description": "Security-relevant information can be exposed over a network interface as part of the initialization process. When security-relevant information is shared by a device when establishing a connection, it can be used by attackers to identify vulnerable devices."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX31": {
+                "label": "EXAMPLE 4",
+                "description": "A micro-USB port meant to be used to power the device only is physically configured so as not to also allow command or debug operations."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT32": {
+                "label": "RATIONALE",
+                "description": "Physical interfaces can be used by an attacker to compromise firmware or memory on a device. \"Unnecessarily\" refers to the manufacturer's assessment of the benefits of an open interface, used for user functionality or for debugging purposes."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX6": {
+                "label": "EXAMPLE 6",
+                "description": "A device has a limitation on the number of authentication attempts within a certain time interval. It also uses increasing time intervals between attempts."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX7": {
+                "label": "EXAMPLE 7",
+                "description": "The client application is able to lock an account or to delay additional authentication attempts after a limited number of failed authentication attempts."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT15": {
+                "label": "RATIONALE",
+                "description": "This provision addresses attacks that perform \"credential stuffing\" or exhaust an entire key-space. It is important that these types of attacks are detected by the consumer IoT device and defended against, whilst guarding against a related threat of \"resource exhaustion\" and denial of service attacks."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX35": {
+                "label": "EXAMPLE 8",
+                "description": "Minimal daemons/processes run with \"root\" privileges. In particular the processes that use network interfaces require unprivileged users rather than requiring a \"root\" user."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX36": {
+                "label": "EXAMPLE 9",
+                "description": "Applications running on a device that includes a multi-user operating system (e.g. Linux\u00ae) use different users for each component or service."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX37": {
+                "label": "EXAMPLE",
+                "description": "A thermostat in a room can have a user mode; this mode prevents changing of other settings. If an unauthorized change to software is detected, an alert to the administrator is appropriate, as the administrator has the ability to act on the alert (whereas a user does not)."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE12": {
+                "label": "NOTE",
+                "description": "An attack that forces a device to revert to a known good state can introduce a DoS risk if the device is unable to successfully perform this or if the attacker is able to repeatedly cause this effect."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE13": {
+                "label": "NOTE 1",
+                "description": "In the context of this provision, \"sensitive personal data\" is data whose disclosure has a high potential to cause harm to the individual. What is to be treated as \"sensitive personal data\" varies across products and use cases, but examples are: video stream of a home security camera, payment information, content of communication data and timestamped location data. Carrying out security and data protection impact assessments can help the manufacturer make appropriate choices."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE14": {
+                "label": "NOTE 2",
+                "description": "Associated services in this context are typically cloud services. Moreover these services are controlled or can be influenced by the manufacturer. These services typically are not operated by the user."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE15": {
+                "label": "NOTE 3",
+                "description": "Confidentiality protection often includes integrity protection according to best practice cryptography."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX39": {
+                "label": "EXAMPLE 1",
+                "description": "A Smart Home loses connection to the internet following a power outage. When the network connection is restored, the devices in the home reconnect after a randomized delay to minimize network utilization."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX40": {
+                "label": "EXAMPLE 2",
+                "description": "After making an update available, the manufacturer notifies devices in batches to prevent them all simultaneously downloading the update."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX41": {
+                "label": "EXAMPLE 1",
+                "description": "Security anomalies can be represented by a deviation from normal behaviour of the device, as expressed by the monitored indicators, for example an abnormal increase of failed login attempts."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX42": {
+                "label": "EXAMPLE 2",
+                "description": "Telemetry from multiple devices allows a manufacturer to notice that updates are failing due to invalid software update authenticity checks."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT35": {
+                "label": "RATIONALE",
+                "description": "Examining telemetry, including log data, is useful for security evaluation and allows for unusual circumstances to be identified early and dealt with, minimizing security risk and allowing quick mitigation of problems."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE18": {
+                "label": "NOTE",
+                "description": "Such functionality can potentially present an attack vector."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT36": {
+                "label": "RATIONALE",
+                "description": "Such functionality is intended for situations when there is a transfer of ownership, when the consumer wishes to delete personal data, when the consumer wishes to remove a service from the device and/or when the consumer wishes to dispose of the device. It is expected that such functionality is compliant to applicable data protection law, including the GDPR [i.7]."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC15": {
+                "label": "RECOMMENDATION",
+                "description": "Removing personal data \"easily\" means that minimal steps are required to complete that action that each involve minimal complexity."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX43": {
+                "label": "EXAMPLE",
+                "description": "A user can have temporary usage of consumer IoT products within a rented apartment. Carrying out a factory reset of the product can remove configuration settings or disable the device to the detriment of the apartment owner and a future user. A factory reset, deleting all data from the IoT device, would not be an appropriate way to delete the personal data of a single user in a shared use context such as this."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT37": {
+                "label": "RATIONALE",
+                "description": "Consumer IoT devices often change ownership and will eventually be recycled or disposed of. Mechanisms can be provided that allow the consumer to remain in control and remove personal data from services, devices and applications. When a consumer wishes to completely remove their personal data, they also expect retrospective deletion of backup copies."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT38": {
+                "label": "RATIONALE",
+                "description": "Deleting personal data from a device or service is often not simply achieved by resetting a device back to its factory default state. There are many use cases where the consumer is not the owner of a device, but wishes to delete their own personal data from the device and all associated services such as cloud services or mobile applications."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX45": {
+                "label": "EXAMPLE 1",
+                "description": "The device receives data that is not of the expected type, for example executable code rather than user inputted text. The software on the device has been written so that the input is parameterized or \"escaped\", preventing this code from being run."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX46": {
+                "label": "EXAMPLE 2",
+                "description": "Out of range data is received by a temperature sensor, rather than trying to process this input it identifies that it is outside of the possible bounds and is discarded and the event is captured in telemetry."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT40": {
+                "label": "RATIONALE",
+                "description": "Systems can be subverted by incorrectly formatted data or code transferred across different types of interface. Automated tools such as fuzzers can be used by attackers or testers to exploit potential gaps and weaknesses that emerge as a result of not validating data."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE1": {
+                "label": "NOTE 1",
+                "description": "Manufacturers are expected to exercise due care for all software and hardware components used in the product, this includes due care related to the selected third parties that provide associated services to support the functions of the product."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE2": {
+                "label": "NOTE 2",
+                "description": "The Common Vulnerability Reporting Framework (CVRF) [i.5] can also be useful to exchange information on security vulnerabilities. Cyber security threat information sharing can support organizations in developing and producing secure products according to ETSI TR 103 331 [i.6]."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT17": {
+                "label": "RATIONALE",
+                "description": "Vulnerabilities are expected to be reported directly to the affected stakeholders in the first instance. If that is not possible, vulnerabilities can be reported to national authorities. Manufacturers are also encouraged to share information with competent industry bodies, such as the GSMA [i.21] and the IoT Security Foundation. Guidance on Coordinated Vulnerability Disclosure is available from the IoT Security Foundation [i.22] which references ISO/IEC 29147 [i.4]. This is expected to be performed for devices within their defined support period. However, manufacturers can continue this outside that period and release security updates to rectify vulnerabilities."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT18": {
+                "label": "RATIONALE",
+                "description": "Manufacturers that provide IoT products have a duty of care to consumers and third parties who can be harmed by their failure to have a CVD programme in place. Additionally, companies that share this information through industry bodies can assist others who can be suffering from the same problem."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_REC2": {
+                "label": "RECOMMENDATION",
+                "description": "Software solutions often contain open source and third party software components. Creating and maintaining list of all software components and their sub-components is a pre-requisite to be able to monitor for product vulnerabilities. Various tools exist to scan source code and binaries and build a so-called Software Bill of Materials (SBOM), which identifies third party components and the versions used in the product. This information is then used to monitor for the associated security and licensing risks of each identified software component."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX8": {
+                "label": "EXAMPLE 1",
+                "description": "The first stage boot loader on a device is written once to device storage and from then on is immutable."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX9": {
+                "label": "EXAMPLE 2",
+                "description": "On devices with several microcontrollers (e.g. one for communication and one for the application) some of them might not be updateable."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE3": {
+                "label": "NOTE 1",
+                "description": "Managing software updates successfully generally relies on communication of version information for software components between the device and the manufacturer."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX10": {
+                "label": "EXAMPLE 3",
+                "description": "Measures can include the use of authentic software update servers, integrity protected communications channels, verifying the authenticity and integrity of software updates. It is recognized that there are great variances in software update mechanisms and what constitutes \"installation\"."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_EX11": {
+                "label": "EXAMPLE 4",
+                "description": "An anti-rollback policy based on version checking can be used to prevent downgrade attacks."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_NOTE4": {
+                "label": "NOTE 2",
+                "description": "There are cases where provision 5.3-1 applies even where 5.3-2 does not. \"Securely updateable\" and \"secure installation\" means that there are adequate measures to prevent an attacker misusing the update mechanism."
+            },
+            "http://www.akgraph.org/ontologies/instances/TS_103645_Baseline#S0_RAT19": {
+                "label": "RATIONALE",
+                "description": "Update mechanisms can range from the device downloading the update directly from a remote server, transmitted from a mobile application or transferred over a USB or other physical interface. If an attacker compromises this mechanism, it allows for a malicious version of the software to be installed on the device."
+            }
+        }
+    },
+    "all_triples_amount": 1385,
+    "consistency_components_amount": 5
+}
