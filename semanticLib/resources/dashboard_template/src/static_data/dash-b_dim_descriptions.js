@@ -37,22 +37,22 @@ const consistency_desc =
         <ExpandComponent/>
     </>
 
-const schema_readability_desc =
+const readability_desc =
     <>
-        <p><b>Schema Readability</b> measures how easily the textual elements of a knowledge graph can be understood by human users.
-            It focuses on the clarity, comprehensibility, and accessibility of the schema, ensuring that users can interpret and navigate the information effectively.
-            Key Components of Schema Readability:</p>
+        <p><b>Readability</b> measures how easily users can interpret and navigate the textual elements—such as identifiers (labels and titles) and descriptions—within a knowledge graph (KG).
+            It focuses on the clarity, comprehensibility, and accessibility of these annotations, ensuring users can effectively understand the presented information.
+            Key Components of Readability:</p>
 
         <ul>
-            <li><p><b>Word Existence</b>: Examines the presence of words in established lexicons, differentiating between existing and non-existing words to assess the validity of the labels and descriptions.</p></li>
-            <li><p><b>Style Consistency</b>: Checks for adherence to defined naming styles and conventions, ensuring that schema elements maintain a uniform structure and style, which enhances overall readability.</p></li>
-            <li><p><b>Language Confidence</b>: Measures the reliability of language detection in <b>descriptions</b> to ensure that the schema communicates effectively in the intended language, accounting for any penalties associated with non-English content.</p></li>
-            <li><p><b>Cognates Evaluation</b>: Assesses the lack of synonyms and hypernyms, ensuring the data is precise and aligned with expected terminologies.</p></li>
-            <li><p><b>Encoding Information Penalty</b>: Applies when encoding information is not present, impacting overall data quality assessment.</p></li>
+            <li><p><b>Word Existence</b>: Examines the presence of words in established lexicons, distinguishing between recognized and unrecognized words to assess the validity of the identifiers and descriptions.</p></li>
+            <li><p><b>Style Consistency</b>: Evaluates adherence to defined naming conventions and structures, ensuring that text elements in the KG maintain uniformity, which enhances overall readability.</p></li>
+            <li><p><b>Language Confidence</b>: Measures the reliability of language detection within <b>descriptions</b> to confirm that content is communicated in the intended language, with penalties for non-English content when English is expected.</p></li>
+            <li><p><b>Cognates Absence</b>: Assesses the uniqueness of <b>identifiers</b> by checking for synonyms and hypernyms, ensuring that each identifier aligns precisely with expected terminologies.</p></li>
+            <li><p><b>Encoding Information Penalty</b>: Applies when language encoding information (e.g., @en) is missing, which impacts the data's quality score.</p></li>
         </ul>
 
-        <p>Schema readability is essential for enhancing user experience, ensuring that the knowledge graph can be easily interpreted and leveraged for decision-making.
-            A high readability score indicates that the schema is user-friendly, minimizing confusion and promoting efficient use of the dataset.</p>
+        <p>Readability is essential for enhancing user experience, ensuring that the knowledge graph’s annotations are straightforward to interpret and apply in various contexts.
+            A high readability score indicates that the KG’s textual elements are user-friendly, reducing ambiguity and promoting efficient use of the data.</p>
         <ExpandComponent/>
     </>
 
@@ -60,5 +60,5 @@ const schema_readability_desc =
 export const dashboard_metricDescriptions = {
         0: completeness_desc,
         1: consistency_desc,
-        2: schema_readability_desc,
+        2: readability_desc,
 }

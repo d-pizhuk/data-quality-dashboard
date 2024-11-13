@@ -62,7 +62,7 @@ export const numeric_info =
     </div>
 
 
-export const createMainDimensions = (completenessVal, consistencyVal, schemaReadability) => [
+export const createMainDimensions = (completenessVal, consistencyVal, readability) => [
     <DoughnutChartComp
         className={"doughnut-diagram hovered_action"}
         value={completenessVal}
@@ -73,8 +73,8 @@ export const createMainDimensions = (completenessVal, consistencyVal, schemaRead
         title={"consistency"}/>,
     <DoughnutChartComp
         className={"doughnut-diagram hovered_action"}
-        value={schemaReadability}
-        title={"schema readability"}/>,
+        value={readability}
+        title={"readability"}/>,
 ];
 
 export const renderExtraPlots = () => {

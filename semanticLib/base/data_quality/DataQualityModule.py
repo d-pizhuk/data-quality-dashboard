@@ -6,7 +6,7 @@ from pygls.server import LanguageServer
 
 from semanticLib.base.data_quality.Consistency import Consistency
 from semanticLib.base.data_quality.KGOverallStatistics import KGOverallStatistics
-from semanticLib.base.data_quality.SchemaReadability import SchemaReadability
+from semanticLib.base.data_quality.Readability import Readability
 from semanticLib.base.data_quality.utils import create_json
 
 class DataQualityModule:
@@ -36,7 +36,7 @@ class DataQualityModule:
         await asyncio.to_thread(self.consistency.calculate)
         await asyncio.to_thread(create_json, self.consistency.to_dict(), self.installation_dir, "consistency.json")
 
-        self.schema_readability = SchemaReadability(self.sparql, self.kg_overall_statistics)
-        await self.ls.statusBarNotification('DQ Dashboard: Calculating schema readability dimension and its metrics...', True)
-        await asyncio.to_thread(self.schema_readability.calculate)
-        await asyncio.to_thread(create_json, self.schema_readability.to_dict(), self.installation_dir, "schema_readability.json")
+        self.readability = Readability(self.sparql, self.kg_overall_statistics)
+        await self.ls.statusBarNotification('DQ Dashboard: Calculating readability dimension and its metrics...', True)
+        await asyncio.to_thread(self.readability.calculate)
+        await asyncio.to_thread(create_json, self.readability.to_dict(), self.installation_dir, "readability.json")

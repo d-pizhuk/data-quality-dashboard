@@ -8,6 +8,8 @@ const Histogram = (data) => {
     const canvasRef = useRef(null);
     const chartInstanceRef = useRef(null);
 
+    const valuesArray = Object.values(data.data);
+
     const renderHistogram  = useCallback(() => {
         canvasRef.current.style.opacity = 0
         setTimeout(() => {
@@ -26,16 +28,16 @@ const Histogram = (data) => {
                     {
                         label: 'Frequency',
                         data: [
-                            data.data.filter(x => x >= 0 && x < 0.1).length,
-                            data.data.filter(x => x >= 0.1 && x < 0.2).length,
-                            data.data.filter(x => x >= 0.2 && x < 0.3).length,
-                            data.data.filter(x => x >= 0.3 && x < 0.4).length,
-                            data.data.filter(x => x >= 0.4 && x < 0.5).length,
-                            data.data.filter(x => x >= 0.5 && x < 0.6).length,
-                            data.data.filter(x => x >= 0.6 && x < 0.7).length,
-                            data.data.filter(x => x >= 0.7 && x < 0.8).length,
-                            data.data.filter(x => x >= 0.8 && x < 0.9).length,
-                            data.data.filter(x => x >= 0.9 && x <= 1).length,
+                            valuesArray.filter(x => x >= 0 && x < 0.1).length,
+                            valuesArray.filter(x => x >= 0.1 && x < 0.2).length,
+                            valuesArray.filter(x => x >= 0.2 && x < 0.3).length,
+                            valuesArray.filter(x => x >= 0.3 && x < 0.4).length,
+                            valuesArray.filter(x => x >= 0.4 && x < 0.5).length,
+                            valuesArray.filter(x => x >= 0.5 && x < 0.6).length,
+                            valuesArray.filter(x => x >= 0.6 && x < 0.7).length,
+                            valuesArray.filter(x => x >= 0.7 && x < 0.8).length,
+                            valuesArray.filter(x => x >= 0.8 && x < 0.9).length,
+                            valuesArray.filter(x => x >= 0.9 && x <= 1).length,
                         ],
                         backgroundColor: `${barColor}`,
                         hoverBackgroundColor: colorsPalette[1],
