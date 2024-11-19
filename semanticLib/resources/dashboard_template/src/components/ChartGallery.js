@@ -3,18 +3,31 @@ import './styles/ChartGallery.css';
 import {clear} from "./utils";
 import PieChartComp from "./PieChartComp";
 import StackedBarChart from "./StackedBarChart";
+import { VscPinned } from "react-icons/vsc";
 
 const ChartGallery = ({ mainChart, secondaryCharts }) => {
     const mainChartRef = useRef(null);
     const mainChartRootRef = useRef(null);
+    const secondaryChartsRef = useRef(null);
+    const pinnedRef = useRef(null);
     const [clicked, setClicked] = useState(false)
 
-    const handleOnClick = () => {
+    const handleOnClick = (index) => {
         setClicked(true)
+        if (secondaryChartsRef.current && pinnedRef.current) {
+            const numberOfChildren = secondaryChartsRef.current.childElementCount;
+            const pinnedHeight = 100 / (numberOfChildren - 1)
+            const top = pinnedHeight * index
+            pinnedRef.current.style.top = `${top}%`
+            pinnedRef.current.style.height = `${pinnedHeight}%`
+            pinnedRef.current.style.opacity = 1
+        }
     };
 
     const handleOnMouseEnter = (index) => {
         setClicked(false)
+        pinnedRef.current.style.height = 0
+        pinnedRef.current.style.opacity = 0
         mainChartRef.current.style.opacity = 0
         setTimeout(() => {
             clear(mainChartRef, mainChartRootRef)
@@ -50,7 +63,11 @@ const ChartGallery = ({ mainChart, secondaryCharts }) => {
             <div ref={mainChartRef} className="mainChart">
                 {mainChart}
             </div>
-            <div className="secondaryCharts">
+            <div ref={secondaryChartsRef} className="secondaryCharts">
+                <div ref={pinnedRef} className="pinned_icon">
+                    <VscPinned/>
+                </div>
+
                 {secondaryCharts.map((chart, index) => (
                     <div
                         key={index}
@@ -58,7 +75,7 @@ const ChartGallery = ({ mainChart, secondaryCharts }) => {
                         style={{height: (100/secondaryCharts.length)+"%"}}
                         onMouseEnter={() => handleOnMouseEnter(index)}
                         onMouseLeave={handleOnMouseLeave}
-                        onClick={handleOnClick}
+                        onClick={() => handleOnClick(index)}
                     >
                         {chart}
                     </div>
