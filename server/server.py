@@ -95,7 +95,11 @@ async def start_dashboard(ls: DQDashboardLS, params):
     await asyncio.sleep(1)  # For visibility of this stage
 
     await ls.statusBarNotification('DQ Dashboard: Copying template files...', True)
-    await asyncio.to_thread(copy_directory, dashboard_template_dir, installation_dir)
+    try:
+        await asyncio.to_thread(copy_directory, dashboard_template_dir, installation_dir)
+    except Exception as e:
+        ls.show_message(f"Error copyting files: {str(e)}", msg_type=MessageType.Error)
+        return
     await asyncio.sleep(1)  # For visibility of this stage
 
     dqm = DataQualityModule(endpoint_url, static_data_dir, ls)

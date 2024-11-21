@@ -31,28 +31,25 @@ def is_connected(endpoint_url):
 
 
 def copy_directory(src_dir, dest_dir, hide_dest=True):
-    try:
-        if not os.path.exists(src_dir):
-            raise FileNotFoundError(f"The source directory {src_dir} does not exist.")
+    if not os.path.exists(src_dir):
+        raise FileNotFoundError(f"The source directory {src_dir} does not exist.")
 
-        if not os.path.exists(dest_dir):
-            os.makedirs(dest_dir)
-            if hide_dest:
-                hide_for_windows(dest_dir)
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
+        if hide_dest:
+            hide_for_windows(dest_dir)
 
-        for item in os.listdir(src_dir):
-            src_item = os.path.join(src_dir, item)
-            dest_item = os.path.join(dest_dir, item)
+    for item in os.listdir(src_dir):
+        src_item = os.path.join(src_dir, item)
+        dest_item = os.path.join(dest_dir, item)
 
-            if os.path.isdir(src_item):
+        if os.path.isdir(src_item):
+            try:
                 shutil.copytree(src_item, dest_item)
-            else:
-                shutil.copy2(src_item, dest_item)
-
-        return True
-
-    except Exception:
-        return False
+            except FileExistsError:
+                continue
+        else:
+            shutil.copy2(src_item, dest_item)
 
 
 def get_files_and_folders_excluding(directory, exclude):

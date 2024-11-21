@@ -9,7 +9,7 @@ import NavigationButtons from "./components/NavigationButtons";
 import CustomSwiper from "./components/CustomSwiper";
 import completeness_data from "./static_data/data/completeness.json";
 import consistency_data from "./static_data/data/consistency.json";
-import schema_readability_data from './static_data/data/schema_readability.json';
+import readability_data from './static_data/data/readability.json';
 import {clear} from "./components/utils";
 import 'katex/dist/katex.min.css';
 
@@ -47,7 +47,7 @@ function App() {
     }
     const [consistencyScore, setConsistencyScore] = useState(defineConsistency());
     const main_dimensions = createMainDimensions(completeness_data.completeness*100,
-        consistencyScore, schema_readability_data.schema_readability*100, 97.5)
+        consistencyScore, readability_data.readability*100, 97.5)
 
     mainDimDoughnutsRefs.current = main_dimensions.map(() => createRef());
 
