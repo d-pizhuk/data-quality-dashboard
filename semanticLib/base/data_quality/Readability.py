@@ -120,6 +120,9 @@ class Readability(ADimension):
         empty_counter = 0
 
         for i, (identifier, identifier_preprocessed) in enumerate(zip(identifiers, identifiers_preprocessed)):
+            if identifier[0] == "Operating System" or identifier[0] == "Component Requirement" or identifier[0] == "Interface":
+                print("")
+
             if identifier[
                 0] and f'{identifier[3]}{Readability.SPLITTER}{identifier[0]}' in identifier_readability_scores:
                 continue
@@ -186,11 +189,10 @@ class Readability(ADimension):
             encoding_info = 1 if identifier_preprocessed[1] is not None else 0
             if encoding_info == 1:
                 identifiers_with_enc_info += 1
+                identifier_final_score = identifier_base_score
             else:
                 identifiers_without_enc_info += 1
-            penalty = encoding_info * encoding_penalty_weight
-
-            identifier_final_score = identifier_base_score - (penalty * identifier_base_score)
+                identifier_final_score = identifier_base_score - (encoding_penalty_weight * identifier_base_score)
 
             identifier_readability_scores[
                 f'{identifier[3]}{Readability.SPLITTER}{identifier[4]}{Readability.SPLITTER}{identifier[0]}'] = identifier_final_score
@@ -292,11 +294,10 @@ class Readability(ADimension):
             encoding_info = 1 if description_preprocessed[1] is not None else 0
             if encoding_info == 1:
                 descriptions_with_enc_info += 1
+                description_final_score = description_base_score
             else:
                 descriptions_without_enc_info += 1
-            penalty = encoding_info * encoding_penalty_weight
-
-            description_final_score = description_base_score - (penalty * description_base_score)
+                description_final_score = description_base_score - (encoding_penalty_weight * description_base_score)
 
             description_readability_scores[
                 f'{description[2]}{Readability.SPLITTER}{description[3]}{Readability.SPLITTER}{description[0]}'] = description_final_score
@@ -315,7 +316,7 @@ class Readability(ADimension):
         annotation = annotation_info[0]
         annotation_words_existance = annotation_info[1]
         # Check for valid characters
-        valid_characters_score = 1 if not re.search(r'[^\w.:, ]', annotation) else 0
+        valid_characters_score = 1 if not re.search(r'[^a-zA-Z0-9.:, ]', annotation) else 0
 
         # Check if PascalCase or camelCase is used (both should NOT be used)
         case_style_score = 1
