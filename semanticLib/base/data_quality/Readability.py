@@ -17,6 +17,7 @@ class Style(Enum):
     IDENTIFIER_FOR_PROPERTY = 1
     DESCRIPTION = 2
 
+
 class Readability(ADimension):
     SPLITTER = "rsp/&"
     EMPTY_TAG = "<empty>"
@@ -82,18 +83,20 @@ class Readability(ADimension):
         self.sparql.setQuery(query)
         results = self.sparql.query().convert()
 
-        labels = [(el["label"]["value"], el["label"]["xml:lang"], el["classification"]["value"], el["subject"]["value"]) if "xml:lang" in el[
-            "label"] else (
-            el["label"]["value"], None, el["classification"]["value"], el["subject"]["value"]) for el in results["results"]["bindings"]]
+        labels = [(el["label"]["value"], el["label"]["xml:lang"], el["classification"]["value"],
+                   el["subject"]["value"], "label") if "xml:lang" in el["label"] else (
+            el["label"]["value"], None, el["classification"]["value"], el["subject"]["value"], "label") for el in
+                  results["results"]["bindings"]]
         labels_preprocessed = [(self.preprocess(label[0]), label[1], label[2], label[3]) for label in labels]
 
         query = read_file(file_name="custom_titles")
         self.sparql.setQuery(query)
         results = self.sparql.query().convert()
 
-        titles = [(el["title"]["value"], el["title"]["xml:lang"], el["classification"]["value"], el["subject"]["value"]) if "xml:lang" in el[
-            "title"] else (
-            el["title"]["value"], None, el["classification"]["value"], el["subject"]["value"]) for el in results["results"]["bindings"]]
+        titles = [(el["title"]["value"], el["title"]["xml:lang"], el["classification"]["value"],
+                   el["subject"]["value"], "title") if "xml:lang" in el["title"] else (
+            el["title"]["value"], None, el["classification"]["value"], el["subject"]["value"], "title") for el in
+                  results["results"]["bindings"]]
         titles_preprocessed = [(self.preprocess(title[0]), title[1], title[2], title[3]) for title in titles]
 
         # added titles to labels too, as they have similar role
@@ -117,7 +120,8 @@ class Readability(ADimension):
         empty_counter = 0
 
         for i, (identifier, identifier_preprocessed) in enumerate(zip(identifiers, identifiers_preprocessed)):
-            if identifier[0] and f'{identifier[3]}{Readability.SPLITTER}{identifier[0]}' in identifier_readability_scores:
+            if identifier[
+                0] and f'{identifier[3]}{Readability.SPLITTER}{identifier[0]}' in identifier_readability_scores:
                 continue
 
             if not identifier[0] or len(identifier[0]) == 0:
@@ -129,12 +133,14 @@ class Readability(ADimension):
                     identifiers_with_enc_info += 1
                 identifiers_without_synonym += 1
                 identifiers_without_hypernym += 1
-                identifier_readability_scores[f'{identifier[3]}{Readability.SPLITTER}{Readability.EMPTY_TAG}{empty_counter}'] = 0
+                identifier_readability_scores[
+                    f'{identifier[3]}{Readability.SPLITTER}{identifier[4]}{Readability.SPLITTER}{Readability.EMPTY_TAG}{empty_counter}'] = 0
                 continue
 
             identifier_words = identifier_preprocessed[0]
             unique_words = set(
-                word for index, identifier_info in enumerate(identifiers_preprocessed) if index != i for word in identifier_info[0])
+                word for index, identifier_info in enumerate(identifiers_preprocessed) if index != i for word in
+                identifier_info[0])
 
             # calculating the score for words' existance in identifier
             word_existance_values = [
@@ -148,10 +154,12 @@ class Readability(ADimension):
             identifier_existance_score = sum(word_existance_values) / len(identifier_words)
 
             # calculating style consistency
-            identifier_info = (identifier[0], {word: bool(value) for word, value in zip(identifier_words, word_existance_values)})
+            identifier_info = (
+            identifier[0], {word: bool(value) for word, value in zip(identifier_words, word_existance_values)})
             style_consistency = self.calculate_style_consistency(identifier_info,
-                                                                 Style.IDENTIFIER_FOR_PROPERTY if identifier_preprocessed[
-                                                                                                 2] == "Property" else Style.IDENTIFIER_FOR_CLASS_INSTANCE_ONTOLOGY)
+                                                                 Style.IDENTIFIER_FOR_PROPERTY if
+                                                                 identifier_preprocessed[
+                                                                     2] == "Property" else Style.IDENTIFIER_FOR_CLASS_INSTANCE_ONTOLOGY)
             style_consistencies.append(style_consistency)
 
             # calculating synonym absense score
@@ -163,7 +171,8 @@ class Readability(ADimension):
             synonym_absence_score = sum(synonym_absence_values) / len(identifier_words)
 
             # calculating hypernym absense score
-            hypernym_absense_values = [1 if not self.has_hypernym(word, unique_words) else 0 for word in identifier_words]
+            hypernym_absense_values = [1 if not self.has_hypernym(word, unique_words) else 0 for word in
+                                       identifier_words]
             if 0 in hypernym_absense_values:
                 identifiers_with_hypernym += 1
             else:
@@ -183,7 +192,8 @@ class Readability(ADimension):
 
             identifier_final_score = identifier_base_score - (penalty * identifier_base_score)
 
-            identifier_readability_scores[f'{identifier[3]}{Readability.SPLITTER}{identifier[0]}'] = identifier_final_score
+            identifier_readability_scores[
+                f'{identifier[3]}{Readability.SPLITTER}{identifier[4]}{Readability.SPLITTER}{identifier[0]}'] = identifier_final_score
 
         self._identifier_readability_scores = identifier_readability_scores
         self._identifier_readability["with_enc_info"] = identifiers_with_enc_info
@@ -204,15 +214,18 @@ class Readability(ADimension):
         self.sparql.setQuery(query)
         results = self.sparql.query().convert()
         descriptions = [
-            (el["description"]["value"], el["description"]["xml:lang"], el["subject"]["value"]) if "xml:lang" in el["description"] else (
-                el["description"]["value"], None, el["subject"]["value"]) for el in results["results"]["bindings"]]
-        descriptions_preprocessed = [(self.preprocess(description[0]), description[1], description[2]) for description in descriptions]
+            (el["description"]["value"], el["description"]["xml:lang"], el["subject"]["value"], "description") if "xml:lang" in el[
+                "description"] else (
+                el["description"]["value"], None, el["subject"]["value"], "description") for el in results["results"]["bindings"]]
+        descriptions_preprocessed = [(self.preprocess(description[0]), description[1], description[2]) for description
+                                     in descriptions]
 
         query = read_file(file_name="custom_comments")
         self.sparql.setQuery(query)
         results = self.sparql.query().convert()
-        comments = [(el["comment"]["value"], el["comment"]["xml:lang"], el["subject"]["value"]) if "xml:lang" in el["comment"] else (
-            el["comment"]["value"], None, el["subject"]["value"]) for el in results["results"]["bindings"]]
+        comments = [(el["comment"]["value"], el["comment"]["xml:lang"], el["subject"]["value"], "comment") if "xml:lang" in el[
+            "comment"] else (
+            el["comment"]["value"], None, el["subject"]["value"], "comment") for el in results["results"]["bindings"]]
         comments_preprocessed = [(self.preprocess(comment[0]), comment[1], comment[2]) for comment in comments]
 
         # added comments to descriptions too, as they have similar role
@@ -221,7 +234,6 @@ class Readability(ADimension):
 
         # description_readability_scores = []
         description_readability_scores = {}
-
 
         encoding_penalty_weight = 0.1
 
@@ -235,9 +247,10 @@ class Readability(ADimension):
         empty_counter = 0
 
         for description, description_preprocessed in zip(descriptions, descriptions_preprocessed):
-            if description[0] and f'{description[2]}{Readability.SPLITTER}{description[0]}' in description_readability_scores:
+            if description[
+                0] and f'{description[2]}{Readability.SPLITTER}{description[3]}{Readability.SPLITTER}{description[0]}' in description_readability_scores:
                 continue
-            
+
             if not description[0] or len(description[0]) == 0:
                 if description_preprocessed[1] is None:
                     descriptions_without_enc_info += 1
@@ -246,7 +259,8 @@ class Readability(ADimension):
                 empty_counter = empty_counter + 1
                 style_consistencies.append(0)
                 lang_confidences.append(0)
-                description_readability_scores[f'{description[2]}{Readability.SPLITTER}{Readability.EMPTY_TAG}{empty_counter}'] = 0
+                description_readability_scores[
+                    f'{description[2]}{Readability.SPLITTER}{description[3]}{Readability.SPLITTER}{Readability.EMPTY_TAG}{empty_counter}'] = 0
                 continue
 
             description_words = description_preprocessed[0]
@@ -264,7 +278,7 @@ class Readability(ADimension):
 
             # calculating style consistency
             description_info = (
-            description[0], {word: bool(value) for word, value in zip(description_words, word_existance_values)})
+                description[0], {word: bool(value) for word, value in zip(description_words, word_existance_values)})
             style_consistency = self.calculate_style_consistency(description_info, Style.DESCRIPTION)
             style_consistencies.append(style_consistency)
 
@@ -284,7 +298,8 @@ class Readability(ADimension):
 
             description_final_score = description_base_score - (penalty * description_base_score)
 
-            description_readability_scores[f'{description[2]}{Readability.SPLITTER}{description[0]}'] = description_final_score
+            description_readability_scores[
+                f'{description[2]}{Readability.SPLITTER}{description[3]}{Readability.SPLITTER}{description[0]}'] = description_final_score
 
         self._desc_readability_scores = description_readability_scores
         self._desc_readability["with_enc_info"] = descriptions_with_enc_info
@@ -311,12 +326,14 @@ class Readability(ADimension):
         words = re.split(r'[_\-\s]+', annotation)
         if style == Style.IDENTIFIER_FOR_CLASS_INSTANCE_ONTOLOGY:
             custom_style_score = statistics.mean([1 if word.istitle() or (
-                    word.isupper() and word in annotation_words_existance and not annotation_words_existance[word]) else 0 for
+                    word.isupper() and word in annotation_words_existance and not annotation_words_existance[
+                word]) else 0 for
                                                   word in words if words])
         elif style == Style.IDENTIFIER_FOR_PROPERTY:
             first_word_style_score = 1 if words and words[0].islower() else 0
             custom_style_score = statistics.mean([1 if word.istitle() or (
-                    word.isupper() and word in annotation_words_existance and not annotation_words_existance[word]) else 0 for
+                    word.isupper() and word in annotation_words_existance and not annotation_words_existance[
+                word]) else 0 for
                                                   word in words[1:] if words] + [first_word_style_score])
         elif style == Style.DESCRIPTION:
             sentences = re.split(r'[.!?]', annotation.strip())
@@ -330,7 +347,7 @@ class Readability(ADimension):
                 word_scores.append(first_word_score)
                 word_scores.extend([1 if (word[0].isupper() or word[0].islower()) and (word[1:].islower() or (
                         word[1:].isupper() and word in annotation_words_existance and not annotation_words_existance[
-                        word])) else 0
+                    word])) else 0
                                     for word in words_in_sentence[1:] if len(word) > 1])
 
             custom_style_score = statistics.mean(word_scores)

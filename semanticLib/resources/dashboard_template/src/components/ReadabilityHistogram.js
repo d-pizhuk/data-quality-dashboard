@@ -4,7 +4,7 @@ import {colorsPalette, renderColor, hasParentWithClass, createTooltip} from "./u
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const Histogram = (data) => {
+const ReadabilityHistogram = (data) => {
     const canvasRef = useRef(null);
     const chartInstanceRef = useRef(null);
     const tooltipOnHoverStatus = useRef(false); // Declare the ref inside the component
@@ -142,9 +142,14 @@ const Histogram = (data) => {
                                     )
 
                                     for (const [index, [key, value]] of top3WorstEntries.entries()) {
-                                        const linkToIssue = `http://localhost:7200/resource?uri=${key.split(readabilitySplitter)[0]}`;
+                                        const splitKey = key.split(readabilitySplitter)
+                                        const linkToIssue = `http://localhost:7200/resource?uri=${splitKey[0]}`;
                                         topStatement.push(
-                                            `${Math.round(value*100*100)/100}%<sup><a href=${linkToIssue} target="_blank" style="color: rgba(5,22,108,0.35); text-decoration: none; font-weight: bold;" title="Open in new window">${index + 1}</a></sup>`
+                                            `<a href="${linkToIssue}" target="_blank" style="color: rgba(5,22,108,0.35); text-decoration: none; font-weight: bold;">${splitKey[1]}</a>`
+                                        );
+
+                                        topStatement.push(
+                                            `(${Math.round(value*100*100)/100}%)`
                                         );
 
                                         if (index !== top3WorstEntries.length - 1) {
@@ -166,9 +171,14 @@ const Histogram = (data) => {
                                     )
 
                                     for (const [index, [key, value]] of top3BestEntries.entries()) {
-                                        const linkToIssue = `http://localhost:7200/resource?uri=${key.split(readabilitySplitter)[0]}`;
+                                        const splitKey = key.split(readabilitySplitter)
+                                        const linkToIssue = `http://localhost:7200/resource?uri=${splitKey[0]}`;
                                         topStatement.push(
-                                            `${Math.round(value*100*100)/100}%<sup><a href=${linkToIssue} target="_blank" style="color: rgba(5,22,108,0.35); text-decoration: none; font-weight: bold;" title="Open in new window">${index + 1}</a></sup>`
+                                            `<a href="${linkToIssue}" target="_blank" style="color: rgba(5,22,108,0.35); text-decoration: none; font-weight: bold;">${splitKey[1]}</a>`
+                                        );
+
+                                        topStatement.push(
+                                            `(${Math.round(value*100*100)/100}%)`
                                         );
 
                                         if (index !== top3BestEntries.length - 1) {
@@ -273,4 +283,4 @@ const Histogram = (data) => {
     );
 };
 
-export default Histogram;
+export default ReadabilityHistogram;

@@ -1,5 +1,5 @@
 import DoughnutChartComp from "../components/DoughnutChartComp";
-import Histogram from "../components/Histogram";
+import ReadabilityHistogram from "../components/ReadabilityHistogram";
 import PieChartComp from "../components/PieChartComp";
 import React from "react";
 import Heatmap from "../components/Heatmap";
@@ -404,7 +404,7 @@ const cognates_ratio_barChart =
 
 const identifier_chartGallery = <ChartGallery mainChart={identifier_readability} secondaryCharts={[identifier_enc_info, identifier_nonsense_info, identifier_style_consistency_mean, cognates_ratio_barChart]}/>
 
-const identifier_readability_scores_histogram = <Histogram data={readability_data.identifier_readability_scores} name={"Distribution of readability scores for identifiers"}/>
+const identifier_readability_scores_histogram = <ReadabilityHistogram data={readability_data.identifier_readability_scores} name={"Distribution of readability scores for identifiers"}/>
 
 const desc_readability =
     <DoughnutChartComp
@@ -438,7 +438,7 @@ const desc_lang_confidence_mean =
 
 const desc_chartGallery = <ChartGallery mainChart={desc_readability} secondaryCharts={[desc_enc_info, desc_nonsense_info, desc_common_words_proportion_mean, desc_lang_confidence_mean]}/>
 
-const desc_hr_scores_histogram = <Histogram data={readability_data.desc_readability_scores} name={"Distribution of readability scores for descriptions"}/>
+const desc_hr_scores_histogram = <ReadabilityHistogram data={readability_data.desc_readability_scores} name={"Distribution of readability scores for descriptions"}/>
 
 const identifier_readability_desc =
     <div className={"desc_container half"}>
@@ -575,7 +575,7 @@ export const getRandomBigChart = () => {
     Object.values(detailed_info).forEach((category) => {
         category.detailed_data.forEach((dataArray) => {
             dataArray.forEach((element) => {
-                if (React.isValidElement(element) && (element.type === Histogram)) {
+                if (React.isValidElement(element) && (element.type === ReadabilityHistogram)) {
                     bigCharts.push(element);
                 }
             });
