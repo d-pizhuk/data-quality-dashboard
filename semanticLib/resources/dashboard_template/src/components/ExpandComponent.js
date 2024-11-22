@@ -106,7 +106,7 @@ const ExpandComponent = () => {
         const parentEl = expandRef.current?.parentElement;
         const svgEl = expandRef.current?.firstChild;
         const scrollbarWidth = parentEl.offsetWidth - parentEl.clientWidth;
-        svgEl.style.left = parentEl.offsetWidth - svgEl.getBoundingClientRect().width - scrollbarWidth - 15
+        svgEl.style.right = scrollbarWidth + 10
     }, []);
 
     useEffect(() => {

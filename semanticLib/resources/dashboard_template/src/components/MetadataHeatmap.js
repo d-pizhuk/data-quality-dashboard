@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import {colorsPalette, createTooltip, hasParentWithClass} from "./utils";
-import "./styles/Heatmap.css"
+import "./styles/MetadataHeatmap.css"
 
-const Heatmap = ({ onto_data, hm_name }) => {
+const MetadataHeatmap = ({ onto_data, hm_name }) => {
     const heatmapRef = useRef();
 
     const createHeatmap = useCallback(() => {
@@ -126,23 +126,48 @@ const Heatmap = ({ onto_data, hm_name }) => {
             .attr('height', y.bandwidth())
             .style('fill', d => color(d.value))
             .on("mouseover", function(event, d) {
+                tooltip.style("display", "block");
+
+                const tooltipHTML = tooltip.html(`Ontology: <b>${ontologies[d.i]}</b><br>Metadata: <b>${allMetadata[d.j]}</b><br>The metadata item of hovered cell is ${d.value === "1" ? "" : "<b>not</b> "}used by the ontology of hovered cell`);
+
+                const tooltipWidth = tooltip.node().offsetWidth;
+                const tooltipHeight = tooltip.node().offsetHeight;
+
+                const pageWidth = window.innerWidth;
+
+                const firstCell = d3.select(svg.selectAll('rect').node());
+                const cellHeight = firstCell.node().getBBox().height;
+
+                let x = event.pageX;
+                let y = event.pageY - tooltipHeight - cellHeight;
+
+                if (x + tooltipWidth > pageWidth) x = pageWidth - tooltipWidth - 10; // Ensure it fits on the right
+
+                tooltipHTML.style("left", `${x}px`)
+                    .style("top", `${y}px`)
+
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .97);
-                tooltip.html(`Ontology: <b>${ontologies[d.i]}</b><br>Metadata: <b>${allMetadata[d.j]}</b><br>The metadata item of hovered cell is ${d.value === "1" ? "": "<b>not</b> "}used by the ontology of hovered cell`)
-                    .style("left", (event.pageX + 5) + "px")
-                    .style("top", (event.pageY - 28) + "px");
             })
             .on("mouseout", function() {
                 tooltip.transition()
                     .duration(500)
-                    .style("opacity", 0);
+                    .style("opacity", 0)
+                    .on("end", function() {
+                        if (parseFloat(d3.select(this).style("opacity")) === 0) {
+                            d3.select(this).style("display", "none");
+                        }
+                    });
             });
 
         // Add tooltip functionality for y-axis labels
         yAxisGroup.selectAll('text')
             .on("mouseover", function(event, d) {
                 const index = processedOntologies.indexOf(d);
+
+                tooltip.style("display", "block");
+
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .95);
@@ -153,7 +178,12 @@ const Heatmap = ({ onto_data, hm_name }) => {
             .on("mouseout", function() {
                 tooltip.transition()
                     .duration(500)
-                    .style("opacity", 0);
+                    .style("opacity", 0)
+                    .on("end", function() {
+                        if (parseFloat(d3.select(this).style("opacity")) === 0) {
+                            d3.select(this).style("display", "none");
+                        }
+                    });
             });
 
         svg.selectAll('.domain')
@@ -182,4 +212,4 @@ const Heatmap = ({ onto_data, hm_name }) => {
     </div>
 };
 
-export default Heatmap;
+export default MetadataHeatmap;

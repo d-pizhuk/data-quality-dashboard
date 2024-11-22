@@ -56,7 +56,6 @@
 .tooltip {
     font-family: 'Open Sans', sans-serif;
     font-size: 0.8vw;
-    /*max-width: 20vw;*/
 }
 
 .tooltip * p {
