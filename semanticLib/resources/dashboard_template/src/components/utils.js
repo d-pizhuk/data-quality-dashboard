@@ -41,7 +41,6 @@ export const createTooltip = () => {
             .style("border", "1px solid #ccc")
             .style("padding", "10px")
             .style("border-radius", "4px")
-            // .style("pointer-events", "none")
             .style("opacity", 0)
             .style("z-index", 10);
     }

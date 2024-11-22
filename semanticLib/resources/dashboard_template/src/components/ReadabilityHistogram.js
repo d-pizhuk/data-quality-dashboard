@@ -115,7 +115,13 @@ const ReadabilityHistogram = (data) => {
                         let tooltip = createTooltipExtended();
 
                         if (tooltipModel.opacity === 0 && ! tooltipOnHoverStatus.current) {
-                            tooltip.transition().duration(500).style("opacity", 0);
+                            tooltip
+                                .style("opacity", 0)
+                                .on("transitionend", function() {
+                                    if (parseFloat(this.style.opacity) === 0) {
+                                        this.style.display = "none";
+                                    }
+                                });
                             return;
                         }
 
@@ -123,6 +129,8 @@ const ReadabilityHistogram = (data) => {
                             const x_pos = tooltipModel.caretX;
                             const y_pos = tooltipModel.caretY;
                             const { left, top } = canvasRef.current.getBoundingClientRect();
+
+                            tooltip.style("display", "block")
 
                             tooltip.transition().duration(200).style("opacity", 0.97);
 

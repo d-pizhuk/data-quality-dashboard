@@ -2,7 +2,7 @@ import DoughnutChartComp from "../components/DoughnutChartComp";
 import ReadabilityHistogram from "../components/ReadabilityHistogram";
 import PieChartComp from "../components/PieChartComp";
 import React from "react";
-import Heatmap from "../components/Heatmap";
+import MetadataHeatmap from "../components/MetadataHeatmap";
 import completeness_data from './data/completeness.json';
 import consistency_data from './data/consistency.json';
 import readability_data from './data/readability.json';
@@ -45,7 +45,7 @@ const relationship_completeness =
         title={"relationship completeness"}/>
 
 
-const onto_md_heatmap = <Heatmap onto_data={completeness_data.onto_md_heatmap_data} hm_name={"Ontology Metadata Heatmap"}/>
+const onto_md_heatmap = <MetadataHeatmap onto_data={completeness_data.onto_md_heatmap_data} hm_name={"Ontology Metadata MetadataHeatmap"}/>
 
 //for ontology, class and instance metadata
 const metadata_completeness_doughnut =
