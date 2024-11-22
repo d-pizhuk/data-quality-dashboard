@@ -117,11 +117,7 @@ const ReadabilityHistogram = (data) => {
                         if (tooltipModel.opacity === 0 && ! tooltipOnHoverStatus.current) {
                             tooltip
                                 .style("opacity", 0)
-                                .on("transitionend", function() {
-                                    if (parseFloat(this.style.opacity) === 0) {
-                                        this.style.display = "none";
-                                    }
-                                });
+                                .style("display", "none")
                             return;
                         }
 
@@ -131,7 +127,6 @@ const ReadabilityHistogram = (data) => {
                             const { left, top } = canvasRef.current.getBoundingClientRect();
 
                             tooltip.style("display", "block")
-
                             tooltip.transition().duration(200).style("opacity", 0.97);
 
                             const topStatement = []
@@ -261,7 +256,7 @@ const ReadabilityHistogram = (data) => {
     }, [renderHistogram]);
 
     return (
-        <div className={"histogram"}>
+        <div className="histogram" {...(data.onClick ? { onClick: data.onClick, style: { cursor: 'pointer' } } : {})}>
             <canvas ref={canvasRef} />
         </div>
     );

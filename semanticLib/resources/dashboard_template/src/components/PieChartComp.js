@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import Chart from 'chart.js/auto';
 import {renderColor} from "./utils";
 
-const PieChartComp = React.memo(({ data, labels, title, tooltipEnabled= true}) => {
+const PieChartComp = React.memo(({ data, labels, title, tooltipEnabled= true, onClick}) => {
     const canvasRef = useRef();
     const containerRef = useRef();
     const chartRef = useRef(null);
@@ -85,7 +85,7 @@ const PieChartComp = React.memo(({ data, labels, title, tooltipEnabled= true}) =
 
 
     return (
-        <div className="doughnut-diagram">
+        <div className="doughnut-diagram" {...(onClick ? { onClick: onClick, style: { cursor: 'pointer' } } : {})}>
             <div className="canvas-container" ref={containerRef} >
                 <canvas ref={canvasRef} style={{ width: '80%', height: '80%' }}/>
             </div>

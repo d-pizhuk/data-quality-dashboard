@@ -77,13 +77,25 @@ export const createMainDimensions = (completenessVal, consistencyVal, readabilit
         title={"readability"}/>,
 ];
 
-export const renderExtraPlots = () => {
+export const renderExtraPlots = (func) => {
+    const { chart, categoryIndex, dataArrayIndex } = getRandomBigChart();
+
+    const handleChartClick = (categoryIndex, dataArrayIndex) => {
+        func(categoryIndex, dataArrayIndex);
+    };
+
     return (
         <div className="extra_plots">
-            {getRandomBigChart()}
+            {React.cloneElement(chart, { onClick: () => handleChartClick(categoryIndex, dataArrayIndex) })}
             <div className="pie_charts">
-                {getRandom2SmallCharts()}
+                {
+                    getRandom2SmallCharts().map(({chart, categoryIndex, arrayIndex }) =>
+                        React.cloneElement(chart, {
+                            onClick: () => handleChartClick(categoryIndex, arrayIndex),
+                        })
+                    )
+                }
             </div>
         </div>
-    )
+    );
 }
