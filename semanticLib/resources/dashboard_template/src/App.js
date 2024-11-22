@@ -87,11 +87,14 @@ function App() {
         }
     };
 
-    const renderContentWithDetailedInfo = (index) => {
+    const renderContentWithDetailedInfo = (index, swiperInitialSlide ) => {
+        if (!swiperInitialSlide) {
+            swiperInitialSlide = 0
+        }
         clear(extraInfoRef, extraInfoRootRef)
 
         const swiperKey = `swiper-${index}-${new Date().getTime()}`
-        const data = <CustomSwiper data={detailed_info[index]["detailed_data"]} swiperKey={swiperKey}/>
+        const data = <CustomSwiper data={detailed_info[index]["detailed_data"]} swiperKey={swiperKey} swiperInitialSlide={swiperInitialSlide}/>
 
         extraInfoRootRef.current.render(data)
     }
@@ -101,9 +104,13 @@ function App() {
     }
 
 
-    const handleClick = (index) => {
+    const handleClick = (index, swiperInitialSlide) => {
         if (onClickDisabledRef.current) {
             return;
+        }
+
+        if (!swiperInitialSlide) {
+            swiperInitialSlide = 0
         }
 
         setupNavButtons(index, 900)
@@ -119,7 +126,7 @@ function App() {
         }
         extraInfoRef.current.style.opacity = 0
         setTimeout(() => {
-            renderContentWithDetailedInfo(index)
+            renderContentWithDetailedInfo(index, swiperInitialSlide)
         }, 500);
 
 
@@ -309,7 +316,6 @@ function App() {
 
     const mainDimensionsWithOnClick = main_dimensions.map((Component, index) => renderComponent(Component, index));
 
-
     return (
         <div className="background">
             <KGBackground />
@@ -326,6 +332,7 @@ function App() {
                         mainDimDoughnutsRefs={mainDimDoughnutsRefs}
                         mainDimRef={mainDimRef}
                         logoContainerRef={logoContainerRef}
+                        handleClick={handleClick}
                     />
                 </div>
                 <div className="info">
@@ -342,7 +349,7 @@ function App() {
                         </div>
                     </div>
                     <div className="extra_info" ref={extraInfoRef}>
-                        {renderExtraPlots()}
+                        {renderExtraPlots(handleClick)}
                         {numeric_info}
                     </div>
                 </div>

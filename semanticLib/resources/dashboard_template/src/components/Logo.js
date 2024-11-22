@@ -15,7 +15,8 @@ const Logo = (refs) => {
         dimInfoRef,
         onClickDisabledRef,
         mainDimDoughnutsRefs,
-        mainDimRef
+        mainDimRef,
+        handleClick
     } = refs;
 
     const renderContentWithBaseInfo = () => {
@@ -24,7 +25,7 @@ const Logo = (refs) => {
 
         const baseInfo =
             <>
-                {renderExtraPlots()}
+                {renderExtraPlots(handleClick)}
                 {numeric_info}
             </>
 

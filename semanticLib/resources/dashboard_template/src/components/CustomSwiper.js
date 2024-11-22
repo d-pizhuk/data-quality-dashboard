@@ -6,7 +6,7 @@ import './styles/CustomSwiper.css';
 import { Navigation } from 'swiper/modules';
 
 
-const CustomSwiper = ({data, swiperKey}) => {
+const CustomSwiper = ({data, swiperKey, swiperInitialSlide}) => {
     const swiperContainerRef = useRef(null)
     const [paddingSet, setPaddingSet] = useState(false);
 
@@ -37,6 +37,7 @@ const CustomSwiper = ({data, swiperKey}) => {
         <div ref={swiperContainerRef} className="swiper-container">
             <Swiper
                 key={swiperKey}
+                initialSlide={swiperInitialSlide}
                 modules={[Navigation]}
                 navigation
                 spaceBetween={50}

@@ -572,11 +572,11 @@ export const detailed_info = {
 export const getRandomBigChart = () => {
     let bigCharts = [];
 
-    Object.values(detailed_info).forEach((category) => {
-        category.detailed_data.forEach((dataArray) => {
+    Object.entries(detailed_info).forEach(([categoryIndex, category]) => {
+        category.detailed_data.forEach((dataArray, dataArrayIndex) => {
             dataArray.forEach((element) => {
                 if (React.isValidElement(element) && (element.type === ReadabilityHistogram)) {
-                    bigCharts.push(element);
+                    bigCharts.push({ chart: element, categoryIndex: parseInt(categoryIndex), dataArrayIndex });
                 }
             });
         });
@@ -589,18 +589,22 @@ export const getRandomBigChart = () => {
 export const getRandom2SmallCharts = () => {
     let smallCharts = [];
 
-    Object.values(detailed_info).forEach((category) => {
-        category.detailed_data.forEach((dataArray) => {
+    Object.entries(detailed_info).forEach(([categoryIndex, category]) => {
+        category.detailed_data.forEach((dataArray, arrayIndex) => {
             dataArray.forEach((element) => {
-                if (React.isValidElement(element) && ( element.type === PieChartComp)) {
-                    smallCharts.push(element);
+                if (React.isValidElement(element) && element.type === PieChartComp) {
+                    smallCharts.push({
+                        chart: element,
+                        categoryIndex: parseInt(categoryIndex),
+                        arrayIndex: arrayIndex,
+                    });
                 }
             });
         });
     });
 
     if (smallCharts.length < 2) {
-        return smallCharts; // Return all available charts if less than 2
+        return smallCharts;
     }
 
     const selectedCharts = [];
