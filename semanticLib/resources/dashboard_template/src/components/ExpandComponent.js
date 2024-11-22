@@ -6,13 +6,21 @@ const ExpandComponent = () => {
     const expandRef = useRef(null);
     const previousHeight = useRef(null)
     const [clicked, setClicked] = useState(false);
+    const [isProcessing, setIsProcessing] = useState(false);
 
     const handleClick = () => {
+        if (isProcessing) return;
+        setIsProcessing(true);
+
         if (!clicked) {
             expandClick();
         } else {
             shrinkClick();
         }
+
+        setTimeout(() => {
+            setIsProcessing(false);
+        }, 500);
     };
 
     const expandClick = () => {

@@ -47,3 +47,15 @@ export const createTooltip = () => {
     }
     return tooltip
 }
+
+export const debounce = (func, delay) => {
+    let timeoutId;
+    return (...args) => {
+        if (timeoutId) {
+            clearTimeout(timeoutId); // Clear the previous timeout
+        }
+        timeoutId = setTimeout(() => {
+            func(...args);
+        }, delay);
+    };
+};
