@@ -206,7 +206,7 @@ const ReadabilityHistogram = (data) => {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'HR Score Bins',
+                        text: 'Readability Score Bins',
                         padding: {
                             top: 10,
                             bottom: 10,
