@@ -45,7 +45,7 @@ const relationship_completeness =
         title={"relationship completeness"}/>
 
 
-const onto_md_heatmap = <MetadataHeatmap onto_data={completeness_data.onto_md_heatmap_data} hm_name={"Ontology Metadata MetadataHeatmap"}/>
+const onto_md_heatmap = <MetadataHeatmap onto_data={completeness_data.onto_md_heatmap_data} hm_name={"Ontology Metadata Heatmap"}/>
 
 //for ontology, class and instance metadata
 const metadata_completeness_doughnut =
