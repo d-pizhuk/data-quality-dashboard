@@ -20,18 +20,17 @@ const NavigationButtons = (refs) => {
 
     return (
         <>
-            <div ref={previousBtnRef} className="previous-action">
+            <div ref={previousBtnRef} className="previous-action" >
                 <button className={"back_btn"} onClick={() => previousClick()}><ArrowBackIcon/></button>
                 <p className={"previous-name"}></p>
             </div>
 
-            <div ref={nextBtnRef}  className="next-action">
+            <div ref={nextBtnRef} className="next-action">
                 <button className={"forward_btn"} onClick={() => nextClick()}><ArrowBackIcon/></button>
                 <p className={"next-name"}></p>
             </div>
         </>
         );
-
 };
 
 export default NavigationButtons;

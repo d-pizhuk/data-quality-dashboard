@@ -1,16 +1,16 @@
-import React, {createRef, useCallback, useEffect, useRef, useState} from 'react';
+import React, { createRef, useCallback, useEffect, useRef, useState } from 'react';
 import Logo from "./components/Logo";
 import KGBackground from "./components/KGBackground";
-import {renderExtraPlots, createMainDimensions, numeric_info} from "./static_data/dash-b_main-page";
-import {dashboard_metricDescriptions} from "./static_data/dash-b_dim_descriptions";
-import {createRoot} from 'react-dom/client';
-import {detailed_info} from "./static_data/dash-b_metric-plots";
+import { renderExtraPlots, createMainDimensions, numeric_info } from "./static_data/dash-b_main-page";
+import { dashboard_metricDescriptions } from "./static_data/dash-b_dim_descriptions";
+import { createRoot } from 'react-dom/client';
+import { detailed_info } from "./static_data/dash-b_metric-plots";
 import NavigationButtons from "./components/NavigationButtons";
 import CustomSwiper from "./components/CustomSwiper";
 import completeness_data from "./static_data/data/completeness.json";
 import consistency_data from "./static_data/data/consistency.json";
 import readability_data from './static_data/data/readability.json';
-import {clear} from "./components/utils";
+import { clear } from "./components/utils";
 import 'katex/dist/katex.min.css';
 
 
@@ -34,20 +34,21 @@ function App() {
     const mainElIdxRef = useRef(null);
     const previousClickedRef = useRef(null);
     const onClickDisabledRef = useRef(false);
+    const logoBtnOnClickDisabledRef = useRef(true);
 
     const defineConsistency = () => {
         const retrievedValue = localStorage.getItem('consistency_score_updated');
         if (retrievedValue) {
             return retrievedValue
         } else {
-            const consistencyScore_withoutConflictReduction = ((consistency_data.consistency_score*consistency_data.consistency_components_amount + 1) / (consistency_data.consistency_components_amount + 1))*100
-            localStorage.setItem('consistency_score_updated', consistencyScore_withoutConflictReduction+"");
+            const consistencyScore_withoutConflictReduction = ((consistency_data.consistency_score * consistency_data.consistency_components_amount + 1) / (consistency_data.consistency_components_amount + 1)) * 100
+            localStorage.setItem('consistency_score_updated', consistencyScore_withoutConflictReduction + "");
             return consistencyScore_withoutConflictReduction
         }
     }
     const [consistencyScore, setConsistencyScore] = useState(defineConsistency());
-    const main_dimensions = createMainDimensions(completeness_data.completeness*100,
-        consistencyScore, readability_data.readability*100, 97.5)
+    const main_dimensions = createMainDimensions(completeness_data.completeness * 100,
+        consistencyScore, readability_data.readability * 100, 97.5)
 
     mainDimDoughnutsRefs.current = main_dimensions.map(() => createRef());
 
@@ -87,14 +88,14 @@ function App() {
         }
     };
 
-    const renderContentWithDetailedInfo = (index, swiperInitialSlide ) => {
+    const renderContentWithDetailedInfo = (index, swiperInitialSlide) => {
         if (!swiperInitialSlide) {
             swiperInitialSlide = 0
         }
         clear(extraInfoRef, extraInfoRootRef)
 
         const swiperKey = `swiper-${index}-${new Date().getTime()}`
-        const data = <CustomSwiper data={detailed_info[index]["detailed_data"]} swiperKey={swiperKey} swiperInitialSlide={swiperInitialSlide}/>
+        const data = <CustomSwiper data={detailed_info[index]["detailed_data"]} swiperKey={swiperKey} swiperInitialSlide={swiperInitialSlide} />
 
         extraInfoRootRef.current.render(data)
     }
@@ -108,18 +109,20 @@ function App() {
         if (onClickDisabledRef.current) {
             return;
         }
+        onClickDisabledRef.current = !onClickDisabledRef.current
+        for (let i = 0; i < mainDimDoughnutsRefs.current.length; i++) {
+            mainDimDoughnutsRefs.current[i].current.classList.remove("hovered_action");
+        }
 
         if (!swiperInitialSlide) {
             swiperInitialSlide = 0
         }
 
-        setupNavButtons(index, 900)
-
         defineMainElInx(index)
         previousClickedRef.current = index
         dimInfoSetup(index)
 
-        for (let i = 0; i < mainDimDoughnutsRefs.current.length; i++){
+        for (let i = 0; i < mainDimDoughnutsRefs.current.length; i++) {
             if (i !== index) {
                 mainDimDoughnutsRefs.current[i].current.style.opacity = 0
             }
@@ -144,27 +147,29 @@ function App() {
         setTimeout(() => {
             dimInfoRef.current.style.opacity = 1;
             extraInfoRef.current.style.opacity = 1;
+            setupNavButtons(index)
         }, 900)
 
         setTimeout(() => {
             dimInfoRef.current.style.transition = null;
             previousBtnRef.current.style.transition = null;
             nextBtnRef.current.style.transition = null;
-            for (let i = 0; i < mainDimDoughnutsRefs.current.length; i++){
+            for (let i = 0; i < mainDimDoughnutsRefs.current.length; i++) {
                 mainDimDoughnutsRefs.current[i].current.style.transition = null;
             }
+            logoBtnOnClickDisabledRef.current = !logoBtnOnClickDisabledRef.current
+            logoContainerRef.current.classList.add("activated");
         }, 1500);
-        onClickDisabledRef.current = !onClickDisabledRef.current
-        for (let i = 0; i < mainDimDoughnutsRefs.current.length; i++){
-            mainDimDoughnutsRefs.current[i].current.classList.remove("hovered_action");
-        }
-        logoContainerRef.current.classList.add("activated");
-
     };
 
     const handleClickFast = (index) => {
+        logoBtnOnClickDisabledRef.current = !logoBtnOnClickDisabledRef.current
+        logoContainerRef.current.classList.remove("activated");
+
         dashboardRef.current.style.transition = "opacity 0.3s ease";
         dashboardRef.current.style.opacity = 0;
+        deactivateButton(nextBtnRef)
+        deactivateButton(previousBtnRef)
 
         setTimeout(() => {
             mainDimDoughnutsRefs.current[previousClickedRef.current].current.style.transform = `translate(0vw, 0vh)`;
@@ -176,60 +181,62 @@ function App() {
             previousClickedRef.current = index
             dimInfoSetup(index)
             moveTo(mainDimDoughnutsRefs.current[index], mainDimDoughnutsRefs.current[mainElIdxRef.current])
-            setupNavButtons(index, 0)
         }, 300);
 
 
         setTimeout(() => {
             dashboardRef.current.style.opacity = 1;
             mainDimDoughnutsRefs.current[index].current.style.opacity = 1;
+            setupNavButtons(index)
         }, 600)
 
 
         setTimeout(() => {
             dimInfoRef.current.style.transition = null;
             mainDimDoughnutsRefs.current[index].current.style.transition = null;
+            logoBtnOnClickDisabledRef.current = !logoBtnOnClickDisabledRef.current
+            logoContainerRef.current.classList.add("activated");
         }, 1000);
     };
 
 
-    const setupNavButtons = (index, activationTimeout) => {
+    const setupNavButtons = (index) => {
         setNavBtnNames(index)
         setBackBtnPosition(false)
-        setTimeout(() => {
-            if (index-1 >= 0) {
-                activateButton(previousBtnRef)
-            } else {
-                deactivateButton(previousBtnRef)
-            }
 
-            if (index+1 < Object.keys(detailed_info).length){
-                activateButton(nextBtnRef)
-            } else {
-                deactivateButton(nextBtnRef)
-            }
-        }, activationTimeout)
+        if (index - 1 >= 0) {
+            activateButton(previousBtnRef)
+        } else {
+            deactivateButton(previousBtnRef)
+        }
+
+        if (index + 1 < Object.keys(detailed_info).length) {
+            activateButton(nextBtnRef)
+        } else {
+            deactivateButton(nextBtnRef)
+        }
+
     }
 
     const setNavBtnNames = (index) => {
-        if (index-1 >= 0) {
-            previousBtnRef.current.querySelector(".previous-name").innerText = detailed_info[index-1]["name"]
+        if (index - 1 >= 0) {
+            previousBtnRef.current.querySelector(".previous-name").innerText = detailed_info[index - 1]["name"]
         }
 
-        if (index+1 < Object.keys(detailed_info).length){
-            nextBtnRef.current.querySelector(".next-name").innerText = detailed_info[index+1]["name"]
+        if (index + 1 < Object.keys(detailed_info).length) {
+            nextBtnRef.current.querySelector(".next-name").innerText = detailed_info[index + 1]["name"]
         }
     }
 
     const setBackBtnPosition = useCallback((isOnResize) => {
-        const halfOfMainDimH = isOnResize ? mainDimRef.current.getBoundingClientRect().height/2 : ((mainDimRef.current.getBoundingClientRect().height * 0.25) / 0.27)/2
-        const halfOfBackBtnH = previousBtnRef.current.getBoundingClientRect().height/2
+        const halfOfMainDimH = isOnResize ? mainDimRef.current.getBoundingClientRect().height / 2 : ((mainDimRef.current.getBoundingClientRect().height * 0.25) / 0.27) / 2
+        const halfOfBackBtnH = previousBtnRef.current.getBoundingClientRect().height / 2
 
         previousBtnRef.current.style.top = `${mainDimRef.current.getBoundingClientRect().top + halfOfMainDimH - halfOfBackBtnH}px`
-        previousBtnRef.current.style.left = `${mainDimRef.current.getBoundingClientRect().left - previousBtnRef.current.getBoundingClientRect().width - 0.0035*window.innerWidth}px`
+        previousBtnRef.current.style.left = `${mainDimRef.current.getBoundingClientRect().left - previousBtnRef.current.getBoundingClientRect().width - 0.0035 * window.innerWidth}px`
 
         nextBtnRef.current.style.top = `${mainDimRef.current.getBoundingClientRect().top + halfOfMainDimH - halfOfBackBtnH}px`
-        nextBtnRef.current.style.right = `${mainDimRef.current.getBoundingClientRect().left - nextBtnRef.current.getBoundingClientRect().width - 0.0035*window.innerWidth}px`
+        nextBtnRef.current.style.right = `${mainDimRef.current.getBoundingClientRect().left - nextBtnRef.current.getBoundingClientRect().width - 0.0035 * window.innerWidth}px`
     }, [])
 
     const activateButton = (btnRef) => {
@@ -307,12 +314,12 @@ function App() {
         };
     }, []);
 
-    useEffect(()=>{
-        if( typeof window?.MathJax !== "undefined"){
+    useEffect(() => {
+        if (typeof window?.MathJax !== "undefined") {
             window.MathJax.typesetClear()
             window.MathJax.typeset()
         }
-    },[])
+    }, [])
 
     const mainDimensionsWithOnClick = main_dimensions.map((Component, index) => renderComponent(Component, index));
 
@@ -322,26 +329,27 @@ function App() {
             <div ref={dashboardRef} className="dashboard">
                 <div className="navbar">
                     <Logo
-                        previousClickedRef = {previousClickedRef}
-                        previousBtnRef = {previousBtnRef}
-                        nextBtnRef = {nextBtnRef}
-                        extraInfoRef = {extraInfoRef}
-                        extraInfoRootRef = {extraInfoRootRef}
-                        dimInfoRef = {dimInfoRef}
+                        previousClickedRef={previousClickedRef}
+                        previousBtnRef={previousBtnRef}
+                        nextBtnRef={nextBtnRef}
+                        extraInfoRef={extraInfoRef}
+                        extraInfoRootRef={extraInfoRootRef}
+                        dimInfoRef={dimInfoRef}
                         onClickDisabledRef={onClickDisabledRef}
                         mainDimDoughnutsRefs={mainDimDoughnutsRefs}
                         mainDimRef={mainDimRef}
                         logoContainerRef={logoContainerRef}
+                        logoBtnOnClickDisabledRef={logoBtnOnClickDisabledRef}
                         handleClick={handleClick}
                     />
                 </div>
                 <div className="info">
                     <div className="main_dimensions" ref={mainDimRef}>
                         <NavigationButtons
-                            previousClickedRef = {previousClickedRef}
-                            previousBtnRef = {previousBtnRef}
-                            nextBtnRef = {nextBtnRef}
-                            navBtnFunc= {handleClickFast}
+                            previousClickedRef={previousClickedRef}
+                            previousBtnRef={previousBtnRef}
+                            nextBtnRef={nextBtnRef}
+                            navBtnFunc={handleClickFast}
                         />
                         {mainDimensionsWithOnClick}
                         <div className="dim_info" ref={dimInfoRef}>

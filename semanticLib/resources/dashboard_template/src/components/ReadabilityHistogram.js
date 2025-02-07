@@ -1,13 +1,15 @@
-import React, {useCallback, useEffect, useRef} from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import {colorsPalette, renderColor, hasParentWithClass, createTooltip, debounce} from "./utils";
+import { colorsPalette, renderColor, hasParentWithClass, createTooltip, debounce } from "./utils";
+import * as d3 from "d3";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const ReadabilityHistogram = (data) => {
     const canvasRef = useRef(null);
     const chartInstanceRef = useRef(null);
-    const tooltipOnHoverStatus = useRef(false); // Declare the ref inside the component
+    const tooltipOnHoverStatus = useRef(false);
+    const [clicked, setClicked] = useState(false)
 
     const topWorstKeys = ['0-10', '10-20', '20-30']
     const topWorstAndBestKeys = ['30-40', '40-50', '50-60', '60-70']
@@ -40,6 +42,14 @@ const ReadabilityHistogram = (data) => {
         }
     };
 
+    const onClickeExtended = (onClick) => {
+        destroyChart()
+        let tooltip = createTooltip()
+        tooltip.style("opacity", 0);
+        tooltip.style("display", "none");
+        onClick()
+    }
+
     const createTooltipExtended = () => {
         let tooltip = createTooltip()
 
@@ -48,12 +58,13 @@ const ReadabilityHistogram = (data) => {
         }).on("mouseleave", () => {
             tooltipOnHoverStatus.current = false;
             tooltip.transition().duration(500).style("opacity", 0);
+            tooltip.style("display", "none");
         });
 
         return tooltip;
     };
 
-    const renderHistogram  = useCallback(() => {
+    const renderHistogram = useCallback(() => {
         canvasRef.current.style.opacity = 0
         destroyChart();
         const barColor = renderColor(1);
@@ -104,7 +115,7 @@ const ReadabilityHistogram = (data) => {
                 },
                 tooltip: {
                     enabled: false,
-                    external: function(context) {
+                    external: function (context) {
                         const tooltipModel = context.tooltip;
                         if (!tooltipModel.dataPoints) {
                             return
@@ -114,7 +125,7 @@ const ReadabilityHistogram = (data) => {
 
                         let tooltip = createTooltipExtended();
 
-                        if (tooltipModel.opacity === 0 && ! tooltipOnHoverStatus.current) {
+                        if (tooltipModel.opacity === 0 && !tooltipOnHoverStatus.current) {
                             tooltip
                                 .style("opacity", 0)
                                 .style("display", "none")
@@ -146,7 +157,7 @@ const ReadabilityHistogram = (data) => {
                                     );
 
                                     topStatement.push(
-                                        `(${Math.round(value*100*100)/100}%)`
+                                        `(${Math.round(value * 100 * 100) / 100}%)`
                                     );
 
                                     if (index !== top3WorstEntries.length - 1) {
@@ -162,7 +173,7 @@ const ReadabilityHistogram = (data) => {
                             }
 
                             if (topBestKeys.includes(histogram_data.labels[dataIndex]) || topWorstAndBestKeys.includes(histogram_data.labels[dataIndex])) {
-                                const top3BestEntries = sortedEntries.slice(sortedEntries.length-3, sortedEntries.length);
+                                const top3BestEntries = sortedEntries.slice(sortedEntries.length - 3, sortedEntries.length);
                                 topStatement.push(
                                     "Top 3 Best Scores in the Range: "
                                 )
@@ -175,7 +186,7 @@ const ReadabilityHistogram = (data) => {
                                     );
 
                                     topStatement.push(
-                                        `(${Math.round(value*100*100)/100}%)`
+                                        `(${Math.round(value * 100 * 100) / 100}%)`
                                     );
 
                                     if (index !== top3BestEntries.length - 1) {
@@ -191,9 +202,9 @@ const ReadabilityHistogram = (data) => {
                             }
 
                             tooltip.html(`# of annotations${xValuesDisplay ? '' :
-                                    ` in '${histogram_data.labels[dataIndex]}'`}: ${histogram_data.datasets[0].data[dataIndex]}<br>`+
-                                `Average: ${Math.round(sortedEntries.reduce((accumulator, current) => accumulator + current[1], 0)/
-                                    sortedEntries.length * 100)/100}<br>`+
+                                ` in '${histogram_data.labels[dataIndex]}'`}: ${histogram_data.datasets[0].data[dataIndex]}<br>` +
+                                `Average: ${Math.round(sortedEntries.reduce((accumulator, current) => accumulator + current[1], 0) /
+                                    sortedEntries.length * 100) / 100}<br>` +
                                 topStatement.join(""))
                                 .style("left", `${x_pos + left}px`)
                                 .style("top", `${y_pos + top}px`);
@@ -256,7 +267,7 @@ const ReadabilityHistogram = (data) => {
     }, [renderHistogram]);
 
     return (
-        <div className="histogram" {...(data.onClick ? { onClick: data.onClick, style: { cursor: 'pointer' } } : {})}>
+        <div className="histogram" {...(data.onClick ? { onClick: () => onClickeExtended(data.onClick), style: { cursor: 'pointer' } } : {})}>
             <canvas ref={canvasRef} />
         </div>
     );

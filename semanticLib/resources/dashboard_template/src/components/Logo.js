@@ -1,8 +1,8 @@
 import React from 'react';
 import './styles/Logo.css';
 import logoImg from '../static_data/img/logo.png'
-import {renderExtraPlots, numeric_info} from "../static_data/dash-b_main-page";
-import {clear} from "./utils";
+import { renderExtraPlots, numeric_info } from "../static_data/dash-b_main-page";
+import { clear } from "./utils";
 
 const Logo = (refs) => {
     const {
@@ -16,6 +16,7 @@ const Logo = (refs) => {
         onClickDisabledRef,
         mainDimDoughnutsRefs,
         mainDimRef,
+        logoBtnOnClickDisabledRef,
         handleClick
     } = refs;
 
@@ -38,12 +39,13 @@ const Logo = (refs) => {
         btnRef.current.firstChild.style.cursor = "default"
         btnRef.current.firstChild.disabled = true
     }
+
     const landingPageClick = () => {
-        if (previousClickedRef.current === null){
+        if (logoBtnOnClickDisabledRef.current) {
             return
         }
+        logoBtnOnClickDisabledRef.current = !logoBtnOnClickDisabledRef.current
 
-        onClickDisabledRef.current = !onClickDisabledRef.current
         deactivateButton(previousBtnRef)
         deactivateButton(nextBtnRef)
 
@@ -62,18 +64,22 @@ const Logo = (refs) => {
 
         setTimeout(() => {
             dimInfoRef.current.style.display = "none";
-            for (let i = 0; i < mainDimDoughnutsRefs.current.length; i++){
+            for (let i = 0; i < mainDimDoughnutsRefs.current.length; i++) {
                 mainDimDoughnutsRefs.current[i].current.style.transition = "opacity 0.7s ease, transform 1.5s ease, background-color 0.5s ease";
                 mainDimDoughnutsRefs.current[i].current.style.opacity = 1
                 extraInfoRef.current.style.opacity = 1;
             }
+
+            setTimeout(() => {
+                for (let i = 0; i < mainDimDoughnutsRefs.current.length; i++) {
+                    mainDimDoughnutsRefs.current[i].current.classList.add("hovered_action");
+                }
+                onClickDisabledRef.current = !onClickDisabledRef.current
+            }, 700)
         }, 700)
 
         mainDimRef.current.style.height = "27%";
         extraInfoRef.current.style.height = "calc(73% - 0.5vw)";
-        for (let i = 0; i < mainDimDoughnutsRefs.current.length; i++){
-            mainDimDoughnutsRefs.current[i].current.classList.add("hovered_action");
-        }
         logoContainerRef.current.classList.remove("activated");
         previousClickedRef.current = null
     }
@@ -84,7 +90,6 @@ const Logo = (refs) => {
             <div className={"logo-text"}>
                 <p>GRAPH</p>
             </div>
-
         </div>
     );
 };
