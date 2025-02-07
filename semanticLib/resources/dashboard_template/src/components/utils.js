@@ -1,6 +1,5 @@
 import {createRoot} from "react-dom/client";
 import * as d3 from "d3";
-import {useRef} from "react";
 
 export const clear= (componentRef, componentRootRef) => {
     if (componentRootRef.current) {

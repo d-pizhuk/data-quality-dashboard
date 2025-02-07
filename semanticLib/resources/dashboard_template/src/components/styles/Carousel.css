@@ -39,3 +39,15 @@
     box-shadow: -20px 0 20px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
+
+.carousel .swiper-pagination-bullet {
+    width: 0.4vw;  
+    height: 0.4vw;            
+    margin: 0 0.25vw !important; 
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 1;            
+  }
+  
+  .carousel .swiper-pagination-bullet-active {
+    background-color: rgba(0, 0, 0, 0.7);
+  }

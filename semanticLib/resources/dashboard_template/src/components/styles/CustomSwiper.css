@@ -10,7 +10,7 @@
     color: rgba(255, 255, 255, 0.69);
 }
 
-.swiper-button-next:after{
+.swiper-button-next:after {
     width: 2vw;
 }
 
@@ -26,3 +26,18 @@
     align-items: center;
 }
 
+.swiper-pagination {
+    bottom: 0.5vw;
+}
+
+.swiper-pagination-bullet {
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    width: 0.55vw;
+    height: 0.55vw;
+    margin: 0 0.25vw !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: rgba(0, 0, 0, 0.7);
+}
