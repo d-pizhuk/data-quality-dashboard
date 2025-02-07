@@ -38,6 +38,9 @@ dashboard_template_dir = "semanticLib/resources/dashboard_template"
 # for running dashboard web app in NodeJS(Windows)
 process_name = "dq_dashboard_web_app_running"
 command_windows = f'cd "{installation_dir}" && npm install --prefix "{installation_dir}" && npm run build && serve -s build'
+command_windows_npm_start = f'cd "{installation_dir}" && npm install --prefix "{installation_dir}" && npm start'
+
+npm_start = True # change to False if you want to build dashboard(takes longer)
 
 
 class DQDashboardLS(LanguageServer):
@@ -114,7 +117,10 @@ async def start_dashboard(ls: DQDashboardLS, params):
     clipboard_thread = threading.Thread(target=monitor_clipboard, daemon=True)
     clipboard_thread.start()
     if IS_WINDOWS:
-        await asyncio.to_thread(run_command_in_new_window_with_waiting_windows, command_windows, process_name)
+        if npm_start:
+            await asyncio.to_thread(run_command_in_new_window_with_waiting_windows, command_windows_npm_start, process_name)
+        else:
+            await asyncio.to_thread(run_command_in_new_window_with_waiting_windows, command_windows, process_name)
     else:
         install_command = (
             f'cd "{installation_dir}" && '
@@ -122,10 +128,15 @@ async def start_dashboard(ls: DQDashboardLS, params):
         )
         await asyncio.to_thread(run_command_in_new_window_with_waiting_macos, install_command)
 
-        build_command = f'cd "{installation_dir}" && npm run build'
-        await asyncio.to_thread(run_command_in_new_window_with_waiting_macos, build_command)
+        if npm_start:
+            npm_start_command = f'cd "{installation_dir}" && npm start'
+            await asyncio.to_thread(run_command_in_new_window_with_waiting_macos, npm_start_command)
+        else:
+            build_command = f'cd "{installation_dir}" && npm run build'
+            await asyncio.to_thread(run_command_in_new_window_with_waiting_macos, build_command)
 
-        serve_command = f'cd "{installation_dir}" && serve -s build'
-        await asyncio.to_thread(run_command_in_new_window_with_waiting_macos, serve_command)
+            serve_command = f'cd "{installation_dir}" && serve -s build'
+            await asyncio.to_thread(run_command_in_new_window_with_waiting_macos, serve_command)
+        
 
     await ls.statusBarNotification("", False)
