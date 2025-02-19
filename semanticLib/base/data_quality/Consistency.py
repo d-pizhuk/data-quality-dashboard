@@ -122,8 +122,15 @@ class Consistency(ADimension):
         self._props_with_range_only_am = self.get_props_with_scope_only_am(Scope.RANGE)
         self._props_with_both_am = self.get_props_with_both_scopes_am()
 
+        custom_props_am = self.kg_overall_statistics._custom_properties_am
+        if custom_props_am == 0:
+            return 1.0
+
         return (
-            self._props_with_domain_only_am / 2 + self._props_with_range_only_am / 2 + self._props_with_both_am) / self.kg_overall_statistics._custom_properties_am
+            self._props_with_domain_only_am / 2 +
+            self._props_with_range_only_am / 2 +
+            self._props_with_both_am
+        ) / custom_props_am
 
     def get_props_without_both_scopes_am(self):
         query = read_file(file_name="props_without_both_scopes_am")
@@ -175,9 +182,10 @@ class Consistency(ADimension):
             range_uri = binding[Scope.RANGE.value]["value"]
 
             if property_uri not in prop_both_scopes_dict:
-                prop_both_scopes_dict[property_uri] = {}
-                prop_both_scopes_dict[property_uri][Scope.DOMAIN.value] = set()
-                prop_both_scopes_dict[property_uri][Scope.RANGE.value] = set()
+                prop_both_scopes_dict[property_uri] = {
+                    Scope.DOMAIN.value: set(),
+                    Scope.RANGE.value: set()
+                }
 
             prop_both_scopes_dict[property_uri][Scope.DOMAIN.value].add(domain_uri)
             prop_both_scopes_dict[property_uri][Scope.RANGE.value].add(range_uri)
@@ -220,12 +228,18 @@ class Consistency(ADimension):
         self._str_format_consistency = self.calculate_str_format_consistency()
         self._num_format_consistency = self.calculate_num_format_consistency()
         self._bool_format_consistency = self.calculate_bool_format_consistency()
-        return statistics.mean([self._date_format_consistency, self._str_format_consistency,
-                                self._num_format_consistency, self._bool_format_consistency])
+        return statistics.mean([
+            self._date_format_consistency,
+            self._str_format_consistency,
+            self._num_format_consistency,
+            self._bool_format_consistency
+        ])
 
     # date format consistency
     def calculate_date_format_consistency(self):
         all_date_md_amount = self.get_all_date_md_amount()
+        if all_date_md_amount == 0:
+            return 1.0  # No date values → assume perfect consistency
         correct_format_date_amount = self.get_correct_format_date_amount()
         return correct_format_date_amount / all_date_md_amount
 
@@ -247,6 +261,8 @@ class Consistency(ADimension):
     def get_lang_encoding_comp(self):
         self.str_with_lang_enc_amount = self.get_str_with_lang_amount()
         self.strings_of_custom_data_amount = self.get_all_strings_amount()
+        if self.strings_of_custom_data_amount == 0:
+            return 1.0
         return self.str_with_lang_enc_amount / self.strings_of_custom_data_amount
 
     def get_str_with_lang_amount(self):
@@ -258,6 +274,8 @@ class Consistency(ADimension):
         return get_count_res_from(query, self.sparql)
 
     def get_valid_chars_comp(self):
+        if self.strings_of_custom_data_amount == 0:
+            return 1.0
         return self.get_str_with_valid_chars_amount() / self.strings_of_custom_data_amount
 
     def get_str_with_valid_chars_amount(self):
@@ -265,6 +283,8 @@ class Consistency(ADimension):
         return get_count_res_from(query, self.sparql)
 
     def get_emptiness_comp(self):
+        if self.strings_of_custom_data_amount == 0:
+            return 1.0
         return self.get_non_empty_str_amount() / self.strings_of_custom_data_amount
 
     def get_non_empty_str_amount(self):
@@ -277,7 +297,10 @@ class Consistency(ADimension):
         all_num_vals_amount = self.get_all_num_vals_amount()
         num_val_in_str_amount = self.get_num_vals_in_str_amount()
 
-        return correctly_typed_num_vals_am / (all_num_vals_amount + num_val_in_str_amount)
+        denominator = all_num_vals_amount + num_val_in_str_amount
+        if denominator == 0:
+            return 1.0
+        return correctly_typed_num_vals_am / denominator
 
     def get_correctly_typed_num_vals_am(self):
         query = read_file(file_name="correctly_typed_num_lit_amount")
@@ -297,7 +320,10 @@ class Consistency(ADimension):
         all_bool_vals_amount = self.get_all_bool_vals_amount()
         bool_vals_in_str_amount = self.get_bool_vals_in_str_amount()
 
-        return correctly_typed_bool_vals_amount / (all_bool_vals_amount + bool_vals_in_str_amount)
+        denominator = all_bool_vals_amount + bool_vals_in_str_amount
+        if denominator == 0:
+            return 1.0
+        return correctly_typed_bool_vals_amount / denominator
 
     def get_correctly_typed_bool_vals_am(self):
         query = read_file(file_name="correctly_typed_bool_vals_amount")
@@ -311,7 +337,8 @@ class Consistency(ADimension):
         query = read_file(file_name="bool_vals_in_str_amount")
         return get_count_res_from(query, self.sparql)
 
-    # checking that all values in real data are conforming to domains and ranges of properties, calculating specificity of scope items(range and domain)
+    # checking that all values in real data are conforming to domains and ranges of properties,
+    # calculating specificity of scope items (range and domain)
     def calculate_scope_conformity_and_specificity(self):
         domain_scope_vals = []
         range_scope_vals = []
@@ -350,22 +377,26 @@ class Consistency(ADimension):
                 continue
 
             if range_pair[1].startswith(Consistency.XSD_LITERAL_URI):
-                query = read_file(file_name="prop_triple_with_xsd_range_amount_template").replace("?property",
-                                                                                                  range_pair[
-                                                                                                      0]).replace(
-                    "?explicitDomain", range_pair[1])
+                query = read_file(file_name="prop_triple_with_xsd_range_amount_template").replace(
+                    "?property", range_pair[0]).replace("?explicitDomain", range_pair[1])
             else:
-                query = read_file(file_name="prop_triple_with_range_amount_template").replace("?property",
-                                                                                              range_pair[0]).replace(
-                    "?explicitDomain", range_pair[1])
+                query = read_file(file_name="prop_triple_with_range_amount_template").replace(
+                    "?property", range_pair[0]).replace("?explicitDomain", range_pair[1])
 
             prop_triples_with_range_amount = get_count_res_from(query, self.sparql)
 
             range_scope_vals.append(prop_triples_with_range_amount / prop_triples_amount)
 
-        return statistics.mean(domain_scope_vals + range_scope_vals), statistics.mean(
-            [non_broad_items_in_domain / len(self.explicit_prop_domain_pairs),
-             non_broad_items_in_range / len(self.explicit_prop_range_pairs)])
+        all_scope_vals = domain_scope_vals + range_scope_vals
+        scope_conformity_score = statistics.mean(all_scope_vals) if all_scope_vals else 1.0
+
+        domain_spec = (non_broad_items_in_domain / len(self.explicit_prop_domain_pairs)
+                       if len(self.explicit_prop_domain_pairs) > 0 else 1.0)
+        range_spec = (non_broad_items_in_range / len(self.explicit_prop_range_pairs)
+                      if len(self.explicit_prop_range_pairs) > 0 else 1.0)
+        scope_specificity_score = statistics.mean([domain_spec, range_spec])
+
+        return scope_conformity_score, scope_specificity_score
 
     def get_explicit_prop_scope_pairs(self, scope: Scope, delimeter=", "):
         prop_scope_dict = self.get_prop_scope_dict(scope)
@@ -380,9 +411,11 @@ class Consistency(ADimension):
             values = [f"<{value}>" for value in values]
             values_str = delimeter.join(values)
 
-            query = read_file(file_name="class_hierarchy_template").replace("?valuesWithoutDelimeter",
-                                                                            values_str.replace(delimeter, " ")).replace(
-                "?valuesWithDelimeter", values_str)
+            query = read_file(file_name="class_hierarchy_template").replace(
+                "?valuesWithoutDelimeter", values_str.replace(delimeter, " ")
+            ).replace(
+                "?valuesWithDelimeter", values_str
+            )
             self.sparql.setQuery(query)
             results = self.sparql.query().convert()
             result = results["results"]["bindings"]
@@ -437,33 +470,26 @@ class Consistency(ADimension):
                 conflicting_relations_data[property_uri] = {}
             if property_uri not in conflicting_relations_metadata:
                 label, description, comment = self.get_label_desc_comment_of(property_uri)
-                if label != None or description != None or comment != None:
+                if label is not None or description is not None or comment is not None:
                     conflicting_relations_metadata[property_uri] = {}
-
                     if label is not None:
                         conflicting_relations_metadata[property_uri]["label"] = label
-
                     if description is not None:
                         conflicting_relations_metadata[property_uri]["description"] = description
-
                     if comment is not None:
                         conflicting_relations_metadata[property_uri]["comment"] = comment
                         
-
             subject_uri = binding["subject"]["value"]
             if subject_uri not in conflicting_relations_data[property_uri]:
                 conflicting_relations_data[property_uri][subject_uri] = []
             if subject_uri not in conflicting_relations_metadata:
                 label, description, comment = self.get_label_desc_comment_of(subject_uri)
-                if label != None or description != None or comment != None:
+                if label is not None or description is not None or comment is not None:
                     conflicting_relations_metadata[subject_uri] = {}
-
                     if label is not None:
                         conflicting_relations_metadata[subject_uri]["label"] = label
-
                     if description is not None:
                         conflicting_relations_metadata[subject_uri]["description"] = description
-
                     if comment is not None:
                         conflicting_relations_metadata[subject_uri]["comment"] = comment
 
@@ -472,15 +498,12 @@ class Consistency(ADimension):
                 conflicting_relations_data[property_uri][subject_uri].append(object_uri)
             if object_uri not in conflicting_relations_metadata:
                 label, description, comment = self.get_label_desc_comment_of(object_uri)
-                if label != None or description != None or comment != None:
+                if label is not None or description is not None or comment is not None:
                     conflicting_relations_metadata[object_uri] = {}
-
                     if label is not None:
                         conflicting_relations_metadata[object_uri]["label"] = label
-
                     if description is not None:
                         conflicting_relations_metadata[object_uri]["description"] = description
-
                     if comment is not None:
                         conflicting_relations_metadata[object_uri]["comment"] = comment
 
@@ -494,22 +517,23 @@ class Consistency(ADimension):
         query = read_file(file_name="label_of_uri_template").replace("?uri", uri)
         self.sparql.setQuery(query)
         results = self.sparql.query().convert()
-        if len(results["results"]["bindings"]) > 0:
-            label = results["results"]["bindings"][0]["label"]["value"]
+        if results["results"]["bindings"]:
+            label = results["results"]["bindings"][0].get("label", {}).get("value")
         
         query = read_file(file_name="comment_of_uri_template").replace("?uri", uri)
         self.sparql.setQuery(query)
         results = self.sparql.query().convert()
-        if len(results["results"]["bindings"]) > 0:
-            comment = results["results"]["bindings"][0]["comment"]["value"]
+        if results["results"]["bindings"]:
+            comment = results["results"]["bindings"][0].get("comment", {}).get("value")
 
         query = read_file(file_name="description_of_uri_template").replace("?uri", uri)
         self.sparql.setQuery(query)
         results = self.sparql.query().convert()
-        if len(results["results"]["bindings"]) > 0:
-            description = results["results"]["bindings"][0]["description"]["value"]
+        if results["results"]["bindings"]:
+            description = results["results"]["bindings"][0].get("description", {}).get("value")
 
-        return label if label is not None else None, description if description is not None else None, comment if comment is not None else None
+        return label, description, comment
+
     # counting all the triples for calculation of conflicting triples metric
     def get_all_triples_amount(self):
         query = read_file(file_name="all_triples_amount")
