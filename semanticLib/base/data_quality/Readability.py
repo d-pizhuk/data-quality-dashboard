@@ -122,9 +122,7 @@ class Readability(ADimension):
         for i, (identifier, identifier_preprocessed) in enumerate(zip(identifiers, identifiers_preprocessed)):
             if identifier[0] == "Operating System" or identifier[0] == "Component Requirement" or identifier[0] == "Interface":
                 print("")
-
-            if identifier[
-                0] and f'{identifier[3]}{Readability.SPLITTER}{identifier[0]}' in identifier_readability_scores:
+            if identifier[0] and f'{identifier[3]}{Readability.SPLITTER}{identifier[0]}' in identifier_readability_scores:
                 continue
 
             if not identifier[0] or len(identifier[0]) == 0:
@@ -145,7 +143,7 @@ class Readability(ADimension):
                 word for index, identifier_info in enumerate(identifiers_preprocessed) if index != i for word in
                 identifier_info[0])
 
-            # calculating the score for words' existance in identifier
+            # calculating the score for words' existence in identifier
             word_existance_values = [
                 1 if self.is_in_wordnet(word)
                 else (0.5 if not self.is_nonsense(word) else 0)
@@ -154,36 +152,36 @@ class Readability(ADimension):
             existing_words += word_existance_values.count(1)
             non_existing_words += (word_existance_values.count(0) + word_existance_values.count(0.5))
 
-            identifier_existance_score = sum(word_existance_values) / len(identifier_words)
+            identifier_existance_score = (sum(word_existance_values) / len(identifier_words)) if identifier_words else 0
 
             # calculating style consistency
             identifier_info = (
-            identifier[0], {word: bool(value) for word, value in zip(identifier_words, word_existance_values)})
-            style_consistency = self.calculate_style_consistency(identifier_info,
-                                                                 Style.IDENTIFIER_FOR_PROPERTY if
-                                                                 identifier_preprocessed[
-                                                                     2] == "Property" else Style.IDENTIFIER_FOR_CLASS_INSTANCE_ONTOLOGY)
+                identifier[0], {word: bool(value) for word, value in zip(identifier_words, word_existance_values)})
+            style_consistency = self.calculate_style_consistency(
+                identifier_info,
+                Style.IDENTIFIER_FOR_PROPERTY if identifier_preprocessed[2] == "Property" else Style.IDENTIFIER_FOR_CLASS_INSTANCE_ONTOLOGY
+            )
             style_consistencies.append(style_consistency)
 
-            # calculating synonym absense score
+            # calculating synonym absence score
             synonym_absence_values = [1 if not self.has_synonym(word, unique_words) else 0 for word in identifier_words]
             if 0 in synonym_absence_values:
                 identifiers_with_synonym += 1
             else:
                 identifiers_without_synonym += 1
-            synonym_absence_score = sum(synonym_absence_values) / len(identifier_words)
+            synonym_absence_score = (sum(synonym_absence_values) / len(identifier_words)) if identifier_words else 0
 
-            # calculating hypernym absense score
-            hypernym_absense_values = [1 if not self.has_hypernym(word, unique_words) else 0 for word in
-                                       identifier_words]
+            # calculating hypernym absence score
+            hypernym_absense_values = [1 if not self.has_hypernym(word, unique_words) else 0 for word in identifier_words]
             if 0 in hypernym_absense_values:
                 identifiers_with_hypernym += 1
             else:
                 identifiers_without_hypernym += 1
-            hypernym_absense_score = sum(hypernym_absense_values) / len(identifier_words)
+            hypernym_absense_score = (sum(hypernym_absense_values) / len(identifier_words)) if identifier_words else 0
 
             identifier_base_score = statistics.mean(
-                [identifier_existance_score, style_consistency, synonym_absence_score, hypernym_absense_score])
+                [identifier_existance_score, style_consistency, synonym_absence_score, hypernym_absense_score]
+            )
 
             # applying penalty score
             encoding_info = 1 if identifier_preprocessed[1] is not None else 0
@@ -202,13 +200,13 @@ class Readability(ADimension):
         self._identifier_readability["without_enc_info"] = identifiers_without_enc_info
         self._identifier_readability["existing_words"] = existing_words
         self._identifier_readability["non_existing_words"] = non_existing_words
-        self._identifier_readability["style_consistency_mean"] = statistics.mean(style_consistencies)
+        self._identifier_readability["style_consistency_mean"] = statistics.mean(style_consistencies) if style_consistencies else 0
         self._identifier_readability["identifiers_with_synonym"] = identifiers_with_synonym
         self._identifier_readability["identifiers_without_synonym"] = identifiers_without_synonym
         self._identifier_readability["identifiers_with_hypernym"] = identifiers_with_hypernym
         self._identifier_readability["identifiers_without_hypernym"] = identifiers_without_hypernym
 
-        return statistics.mean(identifier_readability_scores.values())
+        return statistics.mean(list(identifier_readability_scores.values())) if identifier_readability_scores else 0
 
     # descriptions and comments
     def calculate_description_component(self):
@@ -234,7 +232,6 @@ class Readability(ADimension):
         descriptions = descriptions + comments
         descriptions_preprocessed = descriptions_preprocessed + comments_preprocessed
 
-        # description_readability_scores = []
         description_readability_scores = {}
 
         encoding_penalty_weight = 0.1
@@ -249,8 +246,7 @@ class Readability(ADimension):
         empty_counter = 0
 
         for description, description_preprocessed in zip(descriptions, descriptions_preprocessed):
-            if description[
-                0] and f'{description[2]}{Readability.SPLITTER}{description[3]}{Readability.SPLITTER}{description[0]}' in description_readability_scores:
+            if description[0] and f'{description[2]}{Readability.SPLITTER}{description[3]}{Readability.SPLITTER}{description[0]}' in description_readability_scores:
                 continue
 
             if not description[0] or len(description[0]) == 0:
@@ -267,7 +263,7 @@ class Readability(ADimension):
 
             description_words = description_preprocessed[0]
 
-            # calculating the score for words' existance in description
+            # calculating the score for words' existence in description
             word_existance_values = [
                 1 if self.is_in_wordnet(word)
                 else (0.5 if not self.is_nonsense(word) else 0)
@@ -276,7 +272,7 @@ class Readability(ADimension):
             existing_words += word_existance_values.count(1)
             non_existing_words += (word_existance_values.count(0) + word_existance_values.count(0.5))
 
-            description_existance_score = sum(word_existance_values) / len(description_words)
+            description_existance_score = (sum(word_existance_values) / len(description_words)) if description_words else 0
 
             # calculating style consistency
             description_info = (
@@ -307,10 +303,10 @@ class Readability(ADimension):
         self._desc_readability["without_enc_info"] = descriptions_without_enc_info
         self._desc_readability["existing_words"] = existing_words
         self._desc_readability["non_existing_words"] = non_existing_words
-        self._desc_readability["style_consistency_mean"] = statistics.mean(style_consistencies)
-        self._desc_readability["lang_confidence_mean"] = statistics.mean(lang_confidences)
+        self._desc_readability["style_consistency_mean"] = statistics.mean(style_consistencies) if style_consistencies else 0
+        self._desc_readability["lang_confidence_mean"] = statistics.mean(lang_confidences) if lang_confidences else 0
 
-        return statistics.mean(description_readability_scores.values())
+        return statistics.mean(list(description_readability_scores.values())) if description_readability_scores else 0
 
     def calculate_style_consistency(self, annotation_info, style: Style):
         annotation = annotation_info[0]
@@ -326,32 +322,30 @@ class Readability(ADimension):
         # Check custom style convention
         words = re.split(r'[_\-\s]+', annotation)
         if style == Style.IDENTIFIER_FOR_CLASS_INSTANCE_ONTOLOGY:
-            custom_style_score = statistics.mean([1 if word.istitle() or (
-                    word.isupper() and word in annotation_words_existance and not annotation_words_existance[
-                word]) else 0 for
-                                                  word in words if words])
+            lst = [1 if word.istitle() or (word.isupper() and word in annotation_words_existance and not annotation_words_existance[word]) else 0 
+                   for word in words if word]
+            custom_style_score = statistics.mean(lst) if lst else 0
         elif style == Style.IDENTIFIER_FOR_PROPERTY:
             first_word_style_score = 1 if words and words[0].islower() else 0
-            custom_style_score = statistics.mean([1 if word.istitle() or (
-                    word.isupper() and word in annotation_words_existance and not annotation_words_existance[
-                word]) else 0 for
-                                                  word in words[1:] if words] + [first_word_style_score])
+            lst = [1 if word.istitle() or (word.isupper() and word in annotation_words_existance and not annotation_words_existance[word]) else 0 
+                   for word in words[1:] if word]
+            combined = lst + [first_word_style_score]
+            custom_style_score = statistics.mean(combined) if combined else 0
         elif style == Style.DESCRIPTION:
             sentences = re.split(r'[.!?]', annotation.strip())
-            sentences = [s.strip() for s in sentences if s]
-
+            sentences = [s.strip() for s in sentences if s.strip()]
             word_scores = []
             for sentence in sentences:
                 words_in_sentence = re.split(r'[_\-\s]+', sentence)
-
-                first_word_score = 1 if words_in_sentence and words_in_sentence[0][0].isupper() else 0
+                if words_in_sentence and words_in_sentence[0]:
+                    first_word_score = 1 if words_in_sentence[0][0].isupper() else 0
+                else:
+                    first_word_score = 0
                 word_scores.append(first_word_score)
-                word_scores.extend([1 if (word[0].isupper() or word[0].islower()) and (word[1:].islower() or (
-                        word[1:].isupper() and word in annotation_words_existance and not annotation_words_existance[
-                    word])) else 0
-                                    for word in words_in_sentence[1:] if len(word) > 1])
-
-            custom_style_score = statistics.mean(word_scores)
+                word_scores.extend([1 if (word and ((word[0].isupper() or word[0].islower()) and 
+                                (word[1:].islower() or (word[1:].isupper() and word in annotation_words_existance and not annotation_words_existance[word])))
+                                ) else 0 for word in words_in_sentence[1:] if word])
+            custom_style_score = statistics.mean(word_scores) if word_scores else 0
         else:
             raise ValueError("No such style configuration")
 
@@ -361,21 +355,18 @@ class Readability(ADimension):
         for unique_word in all_unique_words:
             if self.are_synonyms(word, unique_word):
                 return True
-
         return False
 
     def has_hypernym(self, word, all_unique_words):
         for unique_word in all_unique_words:
             if self.are_related_hypernyms(word, unique_word):
                 return True
-
         return False
 
     def is_in_wordnet(self, word):
         word = word.lower()
         if word in self.synonym_cache:
             return self.synonym_cache[word]
-
         is_in_wordnet_val = bool(wordnet.synsets(word))
         self.synonym_cache[word] = is_in_wordnet_val
         return is_in_wordnet_val
@@ -447,13 +438,10 @@ class Readability(ADimension):
     @staticmethod
     def preprocess(annotation):
         words = re.split(r'[_\-\s]+', annotation)
-
         camel_case_split = []
         for word in words:
             camel_case_split.extend(re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', word))
-
         unique_words = list(set(camel_case_split))
-
         return unique_words
 
     @staticmethod

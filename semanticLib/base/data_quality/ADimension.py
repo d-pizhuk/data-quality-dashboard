@@ -26,12 +26,18 @@ class ADimension(ABC):
     # property completeness
     def calculate_property_completeness(self):
         all_props = self.kg_overall_statistics._custom_properties_am
+        if all_props == 0:
+            self._property_completeness["populated_props"] = 0
+            self._property_completeness["unpopulated_props"] = 0
+            return 1.0
+
         populated_props = self.get_populated_properties_amount()
         unpopulated_props = all_props - populated_props
 
         self._property_completeness["populated_props"] = populated_props
         self._property_completeness["unpopulated_props"] = unpopulated_props
         return populated_props / all_props
+
 
     def get_populated_properties_amount(self):
         query = read_file(file_name="populated_props_amount")

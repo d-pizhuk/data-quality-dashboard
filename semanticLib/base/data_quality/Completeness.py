@@ -73,6 +73,11 @@ class Completeness(ADimension):
     # class completeness
     def calculate_class_completeness(self):
         all_classes_am = self.kg_overall_statistics._custom_classes_am
+        if all_classes_am == 0:
+            self._class_completeness["classes_with_instances"] = 0
+            self._class_completeness["classes_without_instances"] = 0
+            return 0
+
         classes_with_instances_am = self.get_classes_with_instances_amount()
         classes_without_instances_am = all_classes_am - classes_with_instances_am
 
@@ -82,15 +87,23 @@ class Completeness(ADimension):
 
     # relationship completeness
     def calculate_relationship_completeness(self):
-        rel_completeness_values = ((self.gather_rel_completeness_data_for(relationship_completeness_statements["simple"], "check_instance_statement")
-                                   + self.gather_rel_completeness_data_for(relationship_completeness_statements["with_xsd_values"], "check_xsd_instance_statement"))
-                                   + self.gather_rel_completeness_reversed_data_for(relationship_completeness_statements["with_reversed_importance"], "check_reversed_instance_statement")
-                                   + self.gather_rel_completeness_complex_data_for(relationship_completeness_statements["complex"], "check_reversed_instance_statement"))
+        rel_values_simple = self.gather_rel_completeness_data_for(
+            relationship_completeness_statements["simple"], "check_instance_statement")
+        rel_values_xsd = self.gather_rel_completeness_data_for(
+            relationship_completeness_statements["with_xsd_values"], "check_xsd_instance_statement")
+        rel_values_reversed = self.gather_rel_completeness_reversed_data_for(
+            relationship_completeness_statements["with_reversed_importance"], "check_reversed_instance_statement")
+        rel_values_complex = self.gather_rel_completeness_complex_data_for(
+            relationship_completeness_statements["complex"], "check_reversed_instance_statement")
+
+        rel_completeness_values = rel_values_simple + rel_values_xsd + rel_values_reversed + rel_values_complex
+        if not rel_completeness_values:
+            return 0
         return statistics.mean(rel_completeness_values)
     
     def gather_rel_completeness_data_for(self, statements, file_name):
         rel_completeness_values = []
-        max_instances_per_batch = 50  
+        max_instances_per_batch = 50
         for statement in statements:
             subject, predicate, obj = statement
 
@@ -109,14 +122,14 @@ class Completeness(ADimension):
                     .replace('?related_type', obj)
 
                 conforming_subject_instances += get_count_res_from(query_formatted, self.sparql)
-        
-            rel_completeness_values.append(conforming_subject_instances / len(subject_instances))
-        
+
+            if len(subject_instances) > 0:
+                rel_completeness_values.append(conforming_subject_instances / len(subject_instances))
         return rel_completeness_values
     
     def gather_rel_completeness_reversed_data_for(self, statements, file_name):
         rel_completeness_values = []
-        max_instances_per_batch = 50  
+        max_instances_per_batch = 50
         for statement in statements:
             subject, predicate, obj = statement
 
@@ -135,14 +148,14 @@ class Completeness(ADimension):
                     .replace('?related_type', subject)
 
                 conforming_object_instances += get_count_res_from(query_formatted, self.sparql)
-        
-            rel_completeness_values.append(conforming_object_instances / len(object_instances))
-        
+
+            if len(object_instances) > 0:
+                rel_completeness_values.append(conforming_object_instances / len(object_instances))
         return rel_completeness_values
     
     def gather_rel_completeness_complex_data_for(self, statements, file_name):
         rel_completeness_values = []
-        
+
         for statement in statements:
             common_subject = self.define_common_subject(statement, [])
             if common_subject is None:
@@ -150,19 +163,19 @@ class Completeness(ADimension):
             common_subject_instances = self.get_instances_of(common_subject)
             if len(common_subject_instances) == 0:
                 continue
-            
+
             bool_structure = self.structure_in_boolean_form(statement, common_subject_instances, [])
-            common_keys = self.check_and_get_dict_keys(bool_structure) # all instances
-            if common_keys is None:
-                raise ValueError("The set of instances must be identical for every part of a complex statement.")
+            common_keys = self.check_and_get_dict_keys(bool_structure)  # all instances
+            if common_keys is None or len(common_keys) == 0:
+                continue
+
             conforming_subject_instances = 0
             for key in common_keys:
                 bool_structure_for_instance = self.bool_structure_for(key, bool_structure)
                 if self.evaluate_bool_structure(bool_structure_for_instance):
                     conforming_subject_instances += 1
-            
+
             rel_completeness_values.append(conforming_subject_instances / len(common_keys))
-        
         return rel_completeness_values
 
     def structure_in_boolean_form(self, statements, common_subject_instances, bool_structure):
@@ -308,13 +321,19 @@ class Completeness(ADimension):
         self._onto_md_heatmap_data = heatmap_data
 
         all_ontologies_amount = self.kg_overall_statistics._all_ontologies_am
+        if all_ontologies_amount == 0:
+            return 0
 
-        essential_metadata_values = [self.get_ontologies_amount_with_md(md_term) / all_ontologies_amount for md_term in
-                                     Completeness.ONTO_ESSENTIAL_MD]
+        essential_metadata_values = [
+            self.get_ontologies_amount_with_md(md_term) / all_ontologies_amount
+            for md_term in Completeness.ONTO_ESSENTIAL_MD
+        ]
         essential_score = sum(essential_metadata_values) / len(Completeness.ONTO_ESSENTIAL_MD)
 
-        optional_metadata_values = [self.get_ontologies_amount_with_md(md_term) / all_ontologies_amount for md_term in
-                                    Completeness.ONTO_OPTIONAL_MD]
+        optional_metadata_values = [
+            self.get_ontologies_amount_with_md(md_term) / all_ontologies_amount
+            for md_term in Completeness.ONTO_OPTIONAL_MD
+        ]
         optional_score = sum(optional_metadata_values) / len(Completeness.ONTO_OPTIONAL_MD)
 
         if essential_score <= threshold:
@@ -343,17 +362,25 @@ class Completeness(ADimension):
 
     def calculate_class_md_component(self):
         all_classes_amount = self.kg_overall_statistics._custom_classes_am
+        if all_classes_amount == 0:
+            return 0
 
-        key_metadata_values = [self.get_classes_amount_with_md(md_term) / all_classes_amount for md_term in
-                               Completeness.CLASS_AND_INSTANCE_ESSENTIAL_MD]
+        key_metadata_values = [
+            self.get_classes_amount_with_md(md_term) / all_classes_amount
+            for md_term in Completeness.CLASS_AND_INSTANCE_ESSENTIAL_MD
+        ]
         key_metadata_score = sum(key_metadata_values) / len(Completeness.CLASS_AND_INSTANCE_ESSENTIAL_MD)
         return key_metadata_score
 
     def calculate_instance_md_component(self):
         all_instances_amount = self.kg_overall_statistics._custom_instances_am
+        if all_instances_amount == 0:
+            return 0
 
-        key_metadata_values = [self.get_instances_amount_with_md(md_term) / all_instances_amount for md_term in
-                               Completeness.CLASS_AND_INSTANCE_ESSENTIAL_MD]
+        key_metadata_values = [
+            self.get_instances_amount_with_md(md_term) / all_instances_amount
+            for md_term in Completeness.CLASS_AND_INSTANCE_ESSENTIAL_MD
+        ]
         key_metadata_score = sum(key_metadata_values) / len(Completeness.CLASS_AND_INSTANCE_ESSENTIAL_MD)
         return key_metadata_score
 
@@ -378,6 +405,8 @@ class Completeness(ADimension):
             raise ValueError(f'Entity type "{entity_type}" is not supported')
 
         total_count = self.get_all_entities_count(entity_type)
+        if total_count == 0:
+            return 0
         linked_count = get_count_res_from(query, self.sparql)
 
         return linked_count / total_count
