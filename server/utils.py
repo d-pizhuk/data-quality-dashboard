@@ -123,7 +123,12 @@ def run_command_in_new_window_with_waiting_macos(command):
 
 
 def monitor_clipboard():
-    pyperclip.copy('')
+    while True:
+        try:
+            pyperclip.copy('')
+            break
+        except pyperclip.PyperclipWindowsException:
+            time.sleep(1)
     previous_text = pyperclip.paste()
 
     while True:
