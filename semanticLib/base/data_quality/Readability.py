@@ -11,6 +11,11 @@ import nltk
 from semanticLib.base.data_quality.KGOverallStatistics import KGOverallStatistics
 from semanticLib.base.data_quality.utils import read_file
 
+class WordNetDownloadError(Exception):
+    """Custom exception for WordNet download failures."""
+    def __init__(self, message="Failed to download WordNet data"):
+        self.message = message
+        super().__init__(self.message)
 
 class Style(Enum):
     IDENTIFIER_FOR_CLASS_INSTANCE_ONTOLOGY = 0
@@ -449,7 +454,11 @@ class Readability(ADimension):
         try:
             wordnet.ensure_loaded()
         except LookupError:
-            nltk.download('wordnet')
+            try:
+                nltk.download('wordnet')
+                wordnet.ensure_loaded()
+            except Exception as e:
+                raise WordNetDownloadError(f"Error downloading WordNet: {e}") from e
 
     @staticmethod
     def is_nonsense(word):
