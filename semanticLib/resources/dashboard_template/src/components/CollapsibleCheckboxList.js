@@ -249,6 +249,7 @@ const CollapsibleCheckboxList = ({ data, metadata, listTitle, listSubtitle, doug
 
         const cacheData = new Response(JSON.stringify(checkedItems));
         const nonConflictTriplesPercentage = (consistency_data.all_triples_amount - countCheckedItems(data)) / consistency_data.all_triples_amount
+        localStorage.setItem('nonConflictTriplesPercentage', nonConflictTriplesPercentage)
 
         if ("caches" in window) {
             const saveToCache = async (cacheData, cacheName) => {
