@@ -37,9 +37,10 @@ function App() {
     const logoBtnOnClickDisabledRef = useRef(true);
 
     const defineConsistency = () => {
-        const retrievedValue = localStorage.getItem('consistency_score_updated');
-        if (retrievedValue) {
-            return retrievedValue
+        const nonConflictTriplesPercentage = localStorage.getItem("nonConflictTriplesPercentage")
+        if (nonConflictTriplesPercentage) {
+            const consistencyScoreUpdated = ((consistency_data.consistency_score * consistency_data.consistency_components_amount + parseFloat(nonConflictTriplesPercentage)) / (consistency_data.consistency_components_amount + 1)) * 100
+            return consistencyScoreUpdated
         } else {
             const consistencyScore_withoutConflictReduction = ((consistency_data.consistency_score * consistency_data.consistency_components_amount + 1) / (consistency_data.consistency_components_amount + 1)) * 100
             localStorage.setItem('consistency_score_updated', consistencyScore_withoutConflictReduction + "");
